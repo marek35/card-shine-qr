@@ -434,7 +434,7 @@ function Index() {
           <div className="flex gap-8 text-sm text-muted-foreground">
             <a href="#" className="transition-colors hover:text-foreground">Impressum</a>
             <a href="#" className="transition-colors hover:text-foreground">Datenschutz</a>
-            <a href="#bestellen" className="transition-colors hover:text-foreground">Kontakt</a>
+            <a href="#anfrage" className="transition-colors hover:text-foreground">Kontakt</a>
           </div>
           <p className="text-sm text-muted-foreground">© 2026 BewertungsFix</p>
         </div>
