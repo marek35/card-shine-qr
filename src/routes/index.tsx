@@ -7,13 +7,13 @@ import qrCode from "@/assets/qr-code.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Google Review Karte mit NFC & QR – 50 € einmalig" },
+      { title: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
       {
         name: "description",
         content:
-          "Lass deine glücklichen Kunden für dich sprechen: NFC- & QR-Karte für mehr Google-Bewertungen. Einmalig 50 € inkl. Programmierung und Karte.",
+          "Lass deine glücklichen Kunden für dich sprechen: NFC- & QR-Karte für mehr Google-Bewertungen. Einmalig 49,99 € inkl. Programmierung und Karte.",
       },
-      { property: "og:title", content: "Google Review Karte mit NFC & QR – 50 € einmalig" },
+      { property: "og:title", content: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
       {
         property: "og:description",
         content: "Tippen oder scannen – deine Kunden bewerten dich in Sekunden bei Google.",
