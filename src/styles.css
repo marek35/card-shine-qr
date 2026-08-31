@@ -171,7 +171,9 @@
 @utility card-float {
   transform: rotateX(10deg) rotateY(-15deg) rotateZ(2deg);
   animation: card-float 6s ease-in-out infinite;
+  perspective: 1400px;
 }
+
 
 @utility preserve-3d {
   transform-style: preserve-3d;
