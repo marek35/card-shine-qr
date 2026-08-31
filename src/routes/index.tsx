@@ -14,9 +14,11 @@ import {
   Mail,
   Send,
   Loader2,
+  Languages,
 } from "lucide-react";
 import qrCode from "@/assets/qr-code.jpg";
 import { submitContactRequest } from "@/lib/contact.functions";
+import { translations, type Dict, type Lang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,14 +41,14 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function ReviewCard() {
+function ReviewCard({ t }: { t: Dict }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <div className="card-float">
       <button
         type="button"
-        aria-label="Karte umdrehen"
+        aria-label={t.cardFlip}
         onClick={() => setFlipped((f) => !f)}
         onMouseEnter={() => setFlipped(true)}
         onMouseLeave={() => setFlipped(false)}
@@ -69,7 +71,7 @@ function ReviewCard() {
               <span className="text-4xl font-bold text-google-blue">G</span>
             </div>
             <div className="space-y-1">
-              <p className="font-semibold text-foreground">Bewerten Sie uns auf Google</p>
+              <p className="font-semibold text-foreground">{t.cardFrontTitle}</p>
               <div className="flex justify-center gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-5 fill-google-yellow text-google-yellow" />
@@ -79,7 +81,7 @@ function ReviewCard() {
           </div>
 
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-            Vorderseite · Antippen
+            {t.cardFront}
           </p>
         </div>
 
@@ -92,14 +94,12 @@ function ReviewCard() {
             <div className="flex size-10 items-center justify-center rounded-full bg-google-blue/10">
               <Nfc className="size-5 text-google-blue" />
             </div>
-            <p className="text-xs font-medium text-muted-foreground">
-              Tippen oder scannen, um uns zu bewerten
-            </p>
+            <p className="text-xs font-medium text-muted-foreground">{t.cardBackHint}</p>
           </div>
 
           <img
             src={qrCode}
-            alt="QR-Code zur Google-Bewertungsseite"
+            alt={t.qrAlt}
             width={512}
             height={512}
             loading="lazy"
@@ -120,7 +120,7 @@ function ReviewCard() {
               <span className="text-google-green">l</span>
               <span className="text-google-red">e</span>
             </p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Rückseite</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{t.cardBack}</p>
           </div>
         </div>
       </button>
@@ -128,7 +128,7 @@ function ReviewCard() {
   );
 }
 
-function ContactForm() {
+function ContactForm({ t }: { t: Dict }) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -146,7 +146,7 @@ function ContactForm() {
       setMessage("");
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Etwas ist schiefgelaufen.");
+      setError(err instanceof Error ? err.message : t.formErrorFallback);
     }
   };
 
@@ -154,7 +154,7 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div>
         <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-foreground">
-          Deine E-Mail
+          {t.formEmail}
         </label>
         <input
           id="contact-email"
@@ -162,19 +162,19 @@ function ContactForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="max@beispiel.de"
+          placeholder={t.formEmailPlaceholder}
           className="w-full rounded-xl bg-background px-4 py-3 text-foreground outline-none ring-1 ring-black/10 placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue"
         />
       </div>
       <div>
         <label htmlFor="contact-message" className="mb-2 block text-sm font-medium text-foreground">
-          Was brauchst du?
+          {t.formMessage}
         </label>
         <textarea
           id="contact-message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Ich brauche eine neue Webseite / AI-Agent / Hilfe bei..."
+          placeholder={t.formMessagePlaceholder}
           rows={4}
           className="w-full resize-none rounded-xl bg-background px-4 py-3 text-foreground outline-none ring-1 ring-black/10 placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue"
         />
@@ -187,41 +187,71 @@ function ContactForm() {
         {status === "loading" ? (
           <>
             <Loader2 className="size-4 animate-spin" />
-            Wird gesendet…
+            {t.formSending}
           </>
         ) : (
           <>
             <Send className="size-4" />
-            Anfrage senden – ich melde mich
+            {t.formSubmit}
           </>
         )}
       </button>
-      {status === "success" && (
-        <p className="text-sm text-google-green">Danke! Deine Anfrage ist angekommen – ich melde mich bei dir.</p>
-      )}
+      {status === "success" && <p className="text-sm text-google-green">{t.formSuccess}</p>}
       {status === "error" && <p className="text-sm text-google-red">{error}</p>}
     </form>
   );
 }
 
+function LanguageToggle({ lang, onChange }: { lang: Lang; onChange: (l: Lang) => void }) {
+  return (
+    <div
+      role="group"
+      aria-label="Sprache / Language"
+      className="flex items-center gap-1 rounded-full bg-muted p-1 ring-1 ring-black/5"
+    >
+      <Languages className="ml-1 size-4 text-muted-foreground" aria-hidden="true" />
+      {(["de", "en"] as const).map((l) => (
+        <button
+          key={l}
+          type="button"
+          onClick={() => onChange(l)}
+          aria-pressed={lang === l}
+          className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
+            lang === l
+              ? "bg-background text-foreground shadow-sm"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 function Index() {
+  const [lang, setLang] = useState<Lang>("de");
+  const t = translations[lang] as unknown as Dict;
+
   return (
-    <div className="font-sans">
+    <div className="font-sans" lang={lang}>
       <nav className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-lg bg-google-blue">
               <Star className="size-4 fill-background text-background" />
             </div>
-            <span className="font-semibold tracking-tight text-foreground">BewertungsFix</span>
+            <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
           </div>
-          <a
-            href="#bestellen"
-            className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
-          >
-            Jetzt bestellen
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageToggle lang={lang} onChange={setLang} />
+            <a
+              href="#bestellen"
+              className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
+            >
+              {t.navCta}
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -230,30 +260,33 @@ function Index() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <h1 className="mb-6 max-w-[20ch] text-balance text-4xl font-semibold leading-none tracking-tight text-foreground lg:text-6xl">
-                Lass deine glücklichen Kunden für dich sprechen
+                {t.heroTitle}
               </h1>
               <p className="mb-8 max-w-[48ch] text-pretty text-lg text-muted-foreground">
-                Zeig deine guten Leistungen nach außen. Deine Kunden tippen oder scannen – und landen
-                direkt im Google-Bewertungsfenster. Kein Suchen, kein Stress.
+                {t.heroText}
               </p>
               <div className="flex flex-col items-start gap-3">
                 <a
                   href="#bestellen"
                   className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
                 >
-                  Karte sichern — 49,99 €
+                  {t.heroCta}
                 </a>
-                <p className="text-sm text-muted-foreground">Einmalige Ausgabe · Kein Abo</p>
+                <p className="text-sm text-muted-foreground">{t.heroNote}</p>
               </div>
             </div>
 
             <div className="perspective-1000 relative flex justify-center">
-              <ReviewCard />
+              <ReviewCard t={t} />
 
               <div className="absolute right-0 top-0 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-google-yellow shadow-lg ring-4 ring-background lg:-right-4 lg:size-32">
-                <span className="text-xs font-bold uppercase tracking-widest text-foreground">Nur</span>
-                <span className="text-2xl font-bold text-foreground lg:text-3xl">49,99 €</span>
-                <span className="text-center text-[10px] font-medium text-foreground">Alles inkl.</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                  {t.badgeOnly}
+                </span>
+                <span className="text-2xl font-bold text-foreground lg:text-3xl">
+                  {lang === "de" ? "49,99 €" : "€49.99"}
+                </span>
+                <span className="text-center text-[10px] font-medium text-foreground">{t.badgeAll}</span>
               </div>
             </div>
           </div>
@@ -263,41 +296,26 @@ function Index() {
       <section className="bg-muted py-24">
         <div className="mx-auto max-w-screen-xl px-6">
           <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight text-foreground">
-            So einfach funktioniert&apos;s
+            {t.howTitle}
           </h2>
           <div className="grid gap-12 md:grid-cols-3">
-            {[
-              {
-                icon: MapPin,
-                color: "bg-google-blue",
-                title: "Karte platzieren",
-                text: "Stelle die Karte an deinem Kassenbereich oder auf den Tischen auf.",
-              },
-              {
-                icon: Smartphone,
-                color: "bg-google-red",
-                title: "Tippen oder Scannen",
-                text: "Kunden halten ihr Smartphone an die Karte oder scannen den QR-Code.",
-              },
-              {
-                icon: Star,
-                color: "bg-google-green",
-                title: "Bewertung erhalten",
-                text: "Das Google-Formular öffnet sich sofort. Sterne vergeben — fertig!",
-              },
-            ].map(({ icon: Icon, color, title, text }) => (
-              <div key={title} className="space-y-4 text-center">
-                <div
-                  className={`mx-auto flex size-12 items-center justify-center rounded-full ${color} text-background`}
-                >
-                  <Icon className="size-5" />
+            {[MapPin, Smartphone, Star].map((Icon, i) => {
+              const color = ["bg-google-blue", "bg-google-red", "bg-google-green"][i];
+              const step = t.steps[i];
+              return (
+                <div key={step.title} className="space-y-4 text-center">
+                  <div
+                    className={`mx-auto flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                  >
+                    <Icon className="size-5" />
+                  </div>
+                  <h3 className="text-lg font-medium text-foreground">{step.title}</h3>
+                  <p className="mx-auto max-w-[35ch] text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
                 </div>
-                <h3 className="text-lg font-medium text-foreground">{title}</h3>
-                <p className="mx-auto max-w-[35ch] text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -305,46 +323,39 @@ function Index() {
       <section id="services" className="py-24">
         <div className="mx-auto max-w-screen-xl px-6">
           <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
-            Mehr als nur Bewertungen
+            {t.servicesTitle}
           </h2>
           <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
-            Du brauchst Unterstützung bei deinem digitalen Auftritt? Hier sind zwei Services, mit denen wir dir weiterhelfen.
+            {t.servicesText}
           </p>
           <div className="grid gap-8 md:grid-cols-2">
-            {[
-              {
-                icon: Monitor,
-                color: "bg-google-blue",
-                title: "Neue Webseite",
-                text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt – wir bauen deine neue Webseite genau passend zu deinem Business.",
-              },
-              {
-                icon: Bot,
-                color: "bg-google-red",
-                title: "Verbesserungen & AI Agents",
-                text: "Bestehende Seite auf Vordermann bringen, Prozesse automatisieren oder smarte AI-Agents einbauen, die dir Arbeit abnehmen.",
-              },
-            ].map(({ icon: Icon, color, title, text }) => (
-              <div
-                key={title}
-                className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
-              >
+            {[Monitor, Bot].map((Icon, i) => {
+              const color = ["bg-google-blue", "bg-google-red"][i];
+              const service = t.services[i];
+              return (
                 <div
-                  className={`mb-6 flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                  key={service.title}
+                  className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
                 >
-                  <Icon className="size-5" />
+                  <div
+                    className={`mb-6 flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                  >
+                    <Icon className="size-5" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold text-foreground">{service.title}</h3>
+                  <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">
+                    {service.text}
+                  </p>
+                  <a
+                    href="#anfrage"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
+                  >
+                    <Mail className="size-4" />
+                    {t.serviceCta}
+                  </a>
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground">{title}</h3>
-                <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">{text}</p>
-                <a
-                  href="#anfrage"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
-                >
-                  <Mail className="size-4" />
-                  Anfrage stellen
-                </a>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -354,24 +365,21 @@ function Index() {
           <div className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
             <div className="relative z-10">
               <h2 className="mb-4 text-balance text-3xl font-semibold leading-tight text-background lg:text-4xl">
-                Bereit für 5-Sterne-Wachstum?
+                {t.orderTitle}
               </h2>
-              <p className="mb-8 max-w-[40ch] text-muted-foreground">
-                Für 49,99 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein
-                Google-Profil – konfiguriert und versendet innerhalb von 48 h.
-              </p>
+              <p className="mb-8 max-w-[40ch] text-muted-foreground">{t.orderText}</p>
               <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
                   required
-                  placeholder="Deine E-Mail Adresse"
+                  placeholder={t.orderEmail}
                   className="w-full rounded-full bg-background/10 px-6 py-3 text-background outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue sm:w-64"
                 />
                 <button
                   type="submit"
                   className="rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-transform hover:scale-[1.02] active:scale-95"
                 >
-                  Bestellung starten
+                  {t.orderCta}
                 </button>
               </form>
             </div>
@@ -384,8 +392,8 @@ function Index() {
                     <InfinityIcon className="size-5 text-foreground" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-background">Einmalige Ausgabe</p>
-                    <p className="text-xs text-muted-foreground">Kein Abo, keine Folgekosten.</p>
+                    <p className="text-sm font-medium text-background">{t.onceTitle}</p>
+                    <p className="text-xs text-muted-foreground">{t.onceText}</p>
                   </div>
                 </div>
                 <div className="flex translate-x-4 items-center gap-4 rounded-2xl bg-background/5 p-4 ring-1 ring-background/10">
@@ -393,8 +401,8 @@ function Index() {
                     <BadgeCheck className="size-5 text-background" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-background">Sofort startklar</p>
-                    <p className="text-xs text-muted-foreground">Wir richten alles für dich ein.</p>
+                    <p className="text-sm font-medium text-background">{t.readyTitle}</p>
+                    <p className="text-xs text-muted-foreground">{t.readyText}</p>
                   </div>
                 </div>
               </div>
@@ -408,14 +416,12 @@ function Index() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
               <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
-                Lass uns loslegen
+                {t.contactTitle}
               </h2>
-              <p className="max-w-[45ch] text-pretty text-muted-foreground">
-                Egal ob neue Webseite, Optimierung oder ein smarter AI-Agent – gib deine E-Mail an, ich komme auf dich zu und wir besprechen alles.
-              </p>
+              <p className="max-w-[45ch] text-pretty text-muted-foreground">{t.contactText}</p>
             </div>
             <div className="rounded-[2rem] bg-card p-8 ring-1 ring-black/5">
-              <ContactForm />
+              <ContactForm t={t} />
             </div>
           </div>
         </div>
@@ -428,15 +434,15 @@ function Index() {
               <Star className="size-3 fill-background text-background" />
             </div>
             <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-              BewertungsFix
+              {t.brand}
             </span>
           </div>
           <div className="flex gap-8 text-sm text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground">Impressum</a>
-            <a href="#" className="transition-colors hover:text-foreground">Datenschutz</a>
-            <a href="#anfrage" className="transition-colors hover:text-foreground">Kontakt</a>
+            <a href="#" className="transition-colors hover:text-foreground">{t.imprint}</a>
+            <a href="#" className="transition-colors hover:text-foreground">{t.privacy}</a>
+            <a href="#anfrage" className="transition-colors hover:text-foreground">{t.contact}</a>
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 BewertungsFix</p>
+          <p className="text-sm text-muted-foreground">© 2026 {t.brand}</p>
         </div>
       </footer>
     </div>
