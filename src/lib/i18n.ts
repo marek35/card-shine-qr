@@ -62,7 +62,7 @@ export const translations = {
     contact: "Kontakt",
   },
   en: {
-    brand: "BewertungsFix",
+    brand: "Scan&Smile",
     navCta: "Order now",
     heroTitle: "Let your happy customers speak for you",
     heroText:
