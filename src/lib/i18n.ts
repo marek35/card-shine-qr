@@ -1,0 +1,126 @@
+export type Lang = "de" | "en";
+
+export const translations = {
+  de: {
+    brand: "BewertungsFix",
+    navCta: "Jetzt bestellen",
+    heroTitle: "Lass deine glücklichen Kunden für dich sprechen",
+    heroText:
+      "Zeig deine guten Leistungen nach außen. Deine Kunden tippen oder scannen – und landen direkt im Google-Bewertungsfenster. Kein Suchen, kein Stress.",
+    heroCta: "Karte sichern — 49,99 €",
+    heroNote: "Einmalige Ausgabe · Kein Abo",
+    badgeOnly: "Nur",
+    badgeAll: "Alles inkl.",
+    cardFlip: "Karte umdrehen",
+    cardFrontTitle: "Bewerten Sie uns auf Google",
+    cardFront: "Vorderseite · Antippen",
+    cardBack: "Rückseite",
+    cardBackHint: "Tippen oder scannen, um uns zu bewerten",
+    qrAlt: "QR-Code zur Google-Bewertungsseite",
+    howTitle: "So einfach funktioniert's",
+    steps: [
+      { title: "Karte platzieren", text: "Stelle die Karte an deinem Kassenbereich oder auf den Tischen auf." },
+      { title: "Tippen oder Scannen", text: "Kunden halten ihr Smartphone an die Karte oder scannen den QR-Code." },
+      { title: "Bewertung erhalten", text: "Das Google-Formular öffnet sich sofort. Sterne vergeben — fertig!" },
+    ],
+    servicesTitle: "Mehr als nur Bewertungen",
+    servicesText:
+      "Du brauchst Unterstützung bei deinem digitalen Auftritt? Hier sind zwei Services, mit denen wir dir weiterhelfen.",
+    services: [
+      {
+        title: "Neue Webseite",
+        text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt – wir bauen deine neue Webseite genau passend zu deinem Business.",
+      },
+      {
+        title: "Verbesserungen & AI Agents",
+        text: "Bestehende Seite auf Vordermann bringen, Prozesse automatisieren oder smarte AI-Agents einbauen, die dir Arbeit abnehmen.",
+      },
+    ],
+    serviceCta: "Anfrage stellen",
+    orderTitle: "Bereit für 5-Sterne-Wachstum?",
+    orderText:
+      "Für 49,99 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein Google-Profil – konfiguriert und versendet innerhalb von 48 h.",
+    orderEmail: "Deine E-Mail Adresse",
+    orderCta: "Bestellung starten",
+    onceTitle: "Einmalige Ausgabe",
+    onceText: "Kein Abo, keine Folgekosten.",
+    readyTitle: "Sofort startklar",
+    readyText: "Wir richten alles für dich ein.",
+    contactTitle: "Lass uns loslegen",
+    contactText:
+      "Egal ob neue Webseite, Optimierung oder ein smarter AI-Agent – gib deine E-Mail an, ich komme auf dich zu und wir besprechen alles.",
+    formEmail: "Deine E-Mail",
+    formEmailPlaceholder: "max@beispiel.de",
+    formMessage: "Was brauchst du?",
+    formMessagePlaceholder: "Ich brauche eine neue Webseite / AI-Agent / Hilfe bei...",
+    formSending: "Wird gesendet…",
+    formSubmit: "Anfrage senden – ich melde mich",
+    formSuccess: "Danke! Deine Anfrage ist angekommen – ich melde mich bei dir.",
+    formErrorFallback: "Etwas ist schiefgelaufen.",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+    contact: "Kontakt",
+  },
+  en: {
+    brand: "BewertungsFix",
+    navCta: "Order now",
+    heroTitle: "Let your happy customers speak for you",
+    heroText:
+      "Show off your great work. Your customers tap or scan – and land straight in the Google review window. No searching, no hassle.",
+    heroCta: "Get your card — €49.99",
+    heroNote: "One-time payment · No subscription",
+    badgeOnly: "Only",
+    badgeAll: "All included",
+    cardFlip: "Flip card",
+    cardFrontTitle: "Review us on Google",
+    cardFront: "Front · Tap",
+    cardBack: "Back",
+    cardBackHint: "Tap or scan to review us",
+    qrAlt: "QR code linking to the Google review page",
+    howTitle: "How it works",
+    steps: [
+      { title: "Place the card", text: "Put the card on your counter or on the tables." },
+      { title: "Tap or scan", text: "Customers hold their phone to the card or scan the QR code." },
+      { title: "Get reviews", text: "The Google form opens instantly. Leave stars — done!" },
+    ],
+    servicesTitle: "More than just reviews",
+    servicesText:
+      "Need support with your digital presence? Here are two services we can help you with.",
+    services: [
+      {
+        title: "New website",
+        text: "From the first idea to a finished one-pager or a complex site – we build your new website to fit your business.",
+      },
+      {
+        title: "Improvements & AI agents",
+        text: "Refresh your existing site, automate processes or add smart AI agents that take work off your hands.",
+      },
+    ],
+    serviceCta: "Send a request",
+    orderTitle: "Ready for 5-star growth?",
+    orderText:
+      "For €49.99 you get the physical NFC card including programming to your Google profile – configured and shipped within 48 h.",
+    orderEmail: "Your email address",
+    orderCta: "Start order",
+    onceTitle: "One-time payment",
+    onceText: "No subscription, no recurring fees.",
+    readyTitle: "Ready to go",
+    readyText: "We set everything up for you.",
+    contactTitle: "Let's get started",
+    contactText:
+      "Whether it's a new website, an optimisation or a smart AI agent – leave your email, I'll reach out and we'll talk it through.",
+    formEmail: "Your email",
+    formEmailPlaceholder: "john@example.com",
+    formMessage: "What do you need?",
+    formMessagePlaceholder: "I need a new website / AI agent / help with...",
+    formSending: "Sending…",
+    formSubmit: "Send request – I'll get back to you",
+    formSuccess: "Thanks! Your request came through – I'll be in touch.",
+    formErrorFallback: "Something went wrong.",
+    imprint: "Imprint",
+    privacy: "Privacy",
+    contact: "Contact",
+  },
+} as const;
+
+export type Dict = (typeof translations)["de"];
