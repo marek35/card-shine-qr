@@ -226,6 +226,53 @@ function Index() {
         </div>
       </section>
 
+      <section id="services" className="py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
+            Mehr als nur Bewertungen
+          </h2>
+          <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
+            Du brauchst Unterstützung bei deinem digitalen Auftritt? Hier sind zwei Services, mit denen wir dir weiterhelfen.
+          </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {[
+              {
+                icon: Monitor,
+                color: "bg-google-blue",
+                title: "Neue Webseite",
+                text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt – wir bauen deine neue Webseite genau passend zu deinem Business.",
+              },
+              {
+                icon: Bot,
+                color: "bg-google-red",
+                title: "Verbesserungen & AI Agents",
+                text: "Bestehende Seite auf Vordermann bringen, Prozesse automatisieren oder smarte AI-Agents einbauen, die dir Arbeit abnehmen.",
+              },
+            ].map(({ icon: Icon, color, title, text }) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
+              >
+                <div
+                  className={`mb-6 flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                >
+                  <Icon className="size-5" />
+                </div>
+                <h3 className="mb-3 text-xl font-semibold text-foreground">{title}</h3>
+                <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">{text}</p>
+                <a
+                  href="#anfrage"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
+                >
+                  <Mail className="size-4" />
+                  Anfrage stellen
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="bestellen" className="py-24">
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
