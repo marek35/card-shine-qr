@@ -258,3 +258,193 @@ function Index() {
       <section className="hero-glow overflow-hidden py-20 lg:py-32">
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
+            <div>
+              <h1 className="mb-6 max-w-[20ch] text-balance text-4xl font-semibold leading-none tracking-tight text-foreground lg:text-6xl">
+                {t.heroTitle}
+              </h1>
+              <p className="mb-8 max-w-[48ch] text-pretty text-lg text-muted-foreground">
+                {t.heroText}
+              </p>
+              <div className="flex flex-col items-start gap-3">
+                
+                  href="#bestellen"
+                  className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
+                >
+                  {t.heroCta}
+                </a>
+                <p className="text-sm text-muted-foreground">{t.heroNote}</p>
+              </div>
+            </div>
+
+            <div className="perspective-1000 relative flex justify-center">
+              <ReviewCard t={t} />
+
+              <div className="absolute right-0 top-0 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-google-yellow shadow-lg ring-4 ring-background lg:-right-4 lg:size-32">
+                <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                  {t.badgeOnly}
+                </span>
+                <span className="text-2xl font-bold text-foreground lg:text-3xl">
+                  {lang === "de" ? "49,99 €" : "€49.99"}
+                </span>
+                <span className="text-center text-[10px] font-medium text-foreground">{t.badgeAll}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-muted py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight text-foreground">
+            {t.howTitle}
+          </h2>
+          <div className="grid gap-12 md:grid-cols-3">
+            {[MapPin, Smartphone, Star].map((Icon, i) => {
+              const color = ["bg-google-blue", "bg-google-red", "bg-google-green"][i];
+              const step = t.steps[i];
+              return (
+                <div key={step.title} className="space-y-4 text-center">
+                  <div
+                    className={`mx-auto flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                  >
+                    <Icon className="size-5" />
+                  </div>
+                  <h3 className="text-lg font-medium text-foreground">{step.title}</h3>
+                  <p className="mx-auto max-w-[35ch] text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
+            {t.servicesTitle}
+          </h2>
+          <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
+            {t.servicesText}
+          </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {[Monitor, Bot].map((Icon, i) => {
+              const color = ["bg-google-blue", "bg-google-red"][i];
+              const service = t.services[i];
+              return (
+                <div
+                  key={service.title}
+                  className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
+                >
+                  <div
+                    className={`mb-6 flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                  >
+                    <Icon className="size-5" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold text-foreground">{service.title}</h3>
+                  <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">
+                    {service.text}
+                  </p>
+                  
+                    href="#anfrage"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
+                  >
+                    <Mail className="size-4" />
+                    {t.serviceCta}
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="bestellen" className="py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <div className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
+            <div className="relative z-10">
+              <h2 className="mb-4 text-balance text-3xl font-semibold leading-tight text-background lg:text-4xl">
+                {t.orderTitle}
+              </h2>
+              <p className="mb-8 max-w-[40ch] text-muted-foreground">{t.orderText}</p>
+              <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  required
+                  placeholder={t.orderEmail}
+                  className="w-full rounded-full bg-background/10 px-6 py-3 text-background outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue sm:w-64"
+                />
+                <button
+                  type="submit"
+                  className="rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-transform hover:scale-[1.02] active:scale-95"
+                >
+                  {t.orderCta}
+                </button>
+              </form>
+            </div>
+
+            <div className="relative w-full max-w-sm">
+              <div className="absolute inset-0 aspect-square rounded-full bg-google-blue/10 blur-3xl" />
+              <div className="relative flex flex-col gap-4">
+                <div className="flex items-center gap-4 rounded-2xl bg-background/5 p-4 ring-1 ring-background/10">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-google-yellow">
+                    <InfinityIcon className="size-5 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-background">{t.onceTitle}</p>
+                    <p className="text-xs text-muted-foreground">{t.onceText}</p>
+                  </div>
+                </div>
+                <div className="flex translate-x-4 items-center gap-4 rounded-2xl bg-background/5 p-4 ring-1 ring-background/10">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-google-green">
+                    <BadgeCheck className="size-5 text-background" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-background">{t.readyTitle}</p>
+                    <p className="text-xs text-muted-foreground">{t.readyText}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anfrage" className="bg-muted py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <div className="grid items-start gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+                {t.contactTitle}
+              </h2>
+              <p className="max-w-[45ch] text-pretty text-muted-foreground">{t.contactText}</p>
+            </div>
+            <div className="rounded-[2rem] bg-card p-8 ring-1 ring-black/5">
+              <ContactForm t={t} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-border py-12">
+        <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
+          <div className="flex items-center gap-2">
+            <div className="flex size-6 items-center justify-center rounded-md bg-google-blue">
+              <Star className="size-3 fill-background text-background" />
+            </div>
+            <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              {t.brand}
+            </span>
+          </div>
+          <div className="flex gap-8 text-sm text-muted-foreground">
+            <Link to="/impressum" className="transition-colors hover:text-foreground">{t.imprint}</Link>
+            <Link to="/datenschutz" className="transition-colors hover:text-foreground">{t.privacy}</Link>
+            <a href="#anfrage" className="transition-colors hover:text-foreground">{t.contact}</a>
+          </div>
+          <p className="text-sm text-muted-foreground">© 2026 {t.brand}</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
