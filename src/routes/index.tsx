@@ -1,8 +1,22 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Nfc, Star, Smartphone, MapPin, Sparkles, BadgeCheck, Infinity as InfinityIcon } from "lucide-react";
+import {
+  Nfc,
+  Star,
+  Smartphone,
+  MapPin,
+  Sparkles,
+  BadgeCheck,
+  Infinity as InfinityIcon,
+  Monitor,
+  Bot,
+  Mail,
+  Send,
+  Loader2,
+} from "lucide-react";
 import qrCode from "@/assets/qr-code.jpg";
+import { submitContactRequest } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
