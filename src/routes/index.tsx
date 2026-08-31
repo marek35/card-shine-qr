@@ -1,8 +1,22 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Nfc, Star, Smartphone, MapPin, Sparkles, BadgeCheck, Infinity as InfinityIcon } from "lucide-react";
+import {
+  Nfc,
+  Star,
+  Smartphone,
+  MapPin,
+  Sparkles,
+  BadgeCheck,
+  Infinity as InfinityIcon,
+  Monitor,
+  Bot,
+  Mail,
+  Send,
+  Loader2,
+} from "lucide-react";
 import qrCode from "@/assets/qr-code.jpg";
+import { submitContactRequest } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -114,6 +128,82 @@ function ReviewCard() {
   );
 }
 
+function ContactForm() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setError(null);
+
+    try {
+      await submitContactRequest({ data: { email, message } });
+      setStatus("success");
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Etwas ist schiefgelaufen.");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <div>
+        <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-foreground">
+          Deine E-Mail
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="max@beispiel.de"
+          className="w-full rounded-xl bg-background px-4 py-3 text-foreground outline-none ring-1 ring-black/10 placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue"
+        />
+      </div>
+      <div>
+        <label htmlFor="contact-message" className="mb-2 block text-sm font-medium text-foreground">
+          Was brauchst du?
+        </label>
+        <textarea
+          id="contact-message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Ich brauche eine neue Webseite / AI-Agent / Hilfe bei..."
+          rows={4}
+          className="w-full resize-none rounded-xl bg-background px-4 py-3 text-foreground outline-none ring-1 ring-black/10 placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue"
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-70"
+      >
+        {status === "loading" ? (
+          <>
+            <Loader2 className="size-4 animate-spin" />
+            Wird gesendet…
+          </>
+        ) : (
+          <>
+            <Send className="size-4" />
+            Anfrage senden – ich melde mich
+          </>
+        )}
+      </button>
+      {status === "success" && (
+        <p className="text-sm text-google-green">Danke! Deine Anfrage ist angekommen – ich melde mich bei dir.</p>
+      )}
+      {status === "error" && <p className="text-sm text-google-red">{error}</p>}
+    </form>
+  );
+}
+
 
 function Index() {
   return (
@@ -212,6 +302,53 @@ function Index() {
         </div>
       </section>
 
+      <section id="services" className="py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
+            Mehr als nur Bewertungen
+          </h2>
+          <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
+            Du brauchst Unterstützung bei deinem digitalen Auftritt? Hier sind zwei Services, mit denen wir dir weiterhelfen.
+          </p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {[
+              {
+                icon: Monitor,
+                color: "bg-google-blue",
+                title: "Neue Webseite",
+                text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt – wir bauen deine neue Webseite genau passend zu deinem Business.",
+              },
+              {
+                icon: Bot,
+                color: "bg-google-red",
+                title: "Verbesserungen & AI Agents",
+                text: "Bestehende Seite auf Vordermann bringen, Prozesse automatisieren oder smarte AI-Agents einbauen, die dir Arbeit abnehmen.",
+              },
+            ].map(({ icon: Icon, color, title, text }) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
+              >
+                <div
+                  className={`mb-6 flex size-12 items-center justify-center rounded-full ${color} text-background`}
+                >
+                  <Icon className="size-5" />
+                </div>
+                <h3 className="mb-3 text-xl font-semibold text-foreground">{title}</h3>
+                <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">{text}</p>
+                <a
+                  href="#anfrage"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
+                >
+                  <Mail className="size-4" />
+                  Anfrage stellen
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="bestellen" className="py-24">
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
@@ -266,6 +403,24 @@ function Index() {
         </div>
       </section>
 
+      <section id="anfrage" className="bg-muted py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <div className="grid items-start gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+                Lass uns loslegen
+              </h2>
+              <p className="max-w-[45ch] text-pretty text-muted-foreground">
+                Egal ob neue Webseite, Optimierung oder ein smarter AI-Agent – gib deine E-Mail an, ich komme auf dich zu und wir besprechen alles.
+              </p>
+            </div>
+            <div className="rounded-[2rem] bg-card p-8 ring-1 ring-black/5">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-border py-12">
         <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
           <div className="flex items-center gap-2">
@@ -279,7 +434,7 @@ function Index() {
           <div className="flex gap-8 text-sm text-muted-foreground">
             <a href="#" className="transition-colors hover:text-foreground">Impressum</a>
             <a href="#" className="transition-colors hover:text-foreground">Datenschutz</a>
-            <a href="#bestellen" className="transition-colors hover:text-foreground">Kontakt</a>
+            <a href="#anfrage" className="transition-colors hover:text-foreground">Kontakt</a>
           </div>
           <p className="text-sm text-muted-foreground">© 2026 BewertungsFix</p>
         </div>
