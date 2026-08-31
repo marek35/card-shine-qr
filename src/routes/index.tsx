@@ -135,7 +135,7 @@ function Index() {
         </div>
       </nav>
 
-      <section className="overflow-hidden py-20 lg:py-32">
+      <section className="hero-glow overflow-hidden py-20 lg:py-32">
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
