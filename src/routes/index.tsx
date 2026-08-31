@@ -24,43 +24,94 @@ export const Route = createFileRoute("/")({
 });
 
 function ReviewCard() {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <div className="card-float">
-      <div className="relative flex h-[480px] w-[320px] flex-col items-center justify-between overflow-hidden rounded-[24px] bg-background p-8 text-center shadow-2xl ring-1 ring-black/10">
-        <div className="flex w-full items-start justify-between">
-          <div className="flex size-9 items-center justify-center rounded-full bg-muted">
-            <Nfc className="size-5 text-muted-foreground" />
+      <button
+        type="button"
+        aria-label="Karte umdrehen"
+        onClick={() => setFlipped((f) => !f)}
+        onMouseEnter={() => setFlipped(true)}
+        onMouseLeave={() => setFlipped(false)}
+        className="preserve-3d relative h-[480px] w-[320px] cursor-pointer transition-transform duration-700 ease-out"
+        style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+      >
+        {/* Vorderseite */}
+        <div className="backface-hidden absolute inset-0 flex flex-col items-center justify-between overflow-hidden rounded-[24px] bg-card p-8 text-center shadow-2xl ring-1 ring-black/10">
+          <div className="flex w-full items-start justify-between">
+            <div className="flex size-9 items-center justify-center rounded-full bg-muted">
+              <Nfc className="size-5 text-muted-foreground" />
+            </div>
+            <div className="flex size-9 items-center justify-center rounded-full bg-google-red/10">
+              <Sparkles className="size-4 text-google-red" />
+            </div>
           </div>
-          <div className="flex size-9 items-center justify-center rounded-full bg-google-red/10">
-            <Sparkles className="size-4 text-google-red" />
+
+          <div className="space-y-4">
+            <div className="mx-auto grid size-20 place-items-center rounded-2xl bg-muted outline-1 -outline-offset-1 outline-black/5">
+              <span className="text-4xl font-bold text-google-blue">G</span>
+            </div>
+            <div className="space-y-1">
+              <p className="font-semibold text-foreground">Bewerten Sie uns auf Google</p>
+              <div className="flex justify-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="size-5 fill-google-yellow text-google-yellow" />
+                ))}
+              </div>
+            </div>
           </div>
+
+          <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            Vorderseite · Antippen
+          </p>
         </div>
 
-        <div className="space-y-4">
-          <div className="mx-auto grid size-20 place-items-center rounded-2xl bg-muted outline-1 -outline-offset-1 outline-black/5">
-            <span className="text-4xl font-bold text-google-blue">G</span>
+        {/* Rückseite */}
+        <div
+          className="backface-hidden absolute inset-0 flex flex-col items-center justify-between overflow-hidden rounded-[24px] bg-card p-8 text-center shadow-2xl ring-1 ring-black/10"
+          style={{ transform: "rotateY(180deg)" }}
+        >
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex size-10 items-center justify-center rounded-full bg-google-blue/10">
+              <Nfc className="size-5 text-google-blue" />
+            </div>
+            <p className="text-xs font-medium text-muted-foreground">
+              Tippen oder scannen, um uns zu bewerten
+            </p>
           </div>
-          <div className="space-y-1">
-            <p className="font-semibold text-foreground">Bewerten Sie uns</p>
+
+          <img
+            src={qrCode}
+            alt="QR-Code zur Google-Bewertungsseite"
+            width={512}
+            height={512}
+            loading="lazy"
+            className="size-36 rounded-xl object-cover outline-1 -outline-offset-1 outline-black/5"
+          />
+
+          <div className="space-y-2">
             <div className="flex justify-center gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="size-5 fill-google-yellow text-google-yellow" />
               ))}
             </div>
+            <p className="text-2xl font-semibold tracking-tight">
+              <span className="text-google-blue">G</span>
+              <span className="text-google-red">o</span>
+              <span className="text-google-yellow">o</span>
+              <span className="text-google-blue">g</span>
+              <span className="text-google-green">l</span>
+              <span className="text-google-red">e</span>
+            </p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Rückseite</p>
           </div>
         </div>
-
-        <img
-          src={qrCode}
-          alt="QR-Code der Google Review Karte"
-          width={512}
-          height={512}
-          className="size-32 rounded-xl object-cover outline-1 -outline-offset-1 outline-black/5"
-        />
-      </div>
+      </button>
     </div>
   );
 }
+
 
 function Index() {
   return (
