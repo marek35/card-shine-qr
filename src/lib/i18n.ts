@@ -2,7 +2,7 @@ export type Lang = "de" | "en";
 
 export const translations = {
   de: {
-    brand: "BewertungsFix",
+    brand: "Scan&Smile",
     navCta: "Jetzt bestellen",
     heroTitle: "Lass deine glücklichen Kunden für dich sprechen",
     heroText:
