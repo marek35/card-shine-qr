@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+
 import { Nfc, Star, Smartphone, MapPin, Sparkles, BadgeCheck, Infinity as InfinityIcon } from "lucide-react";
 import qrCode from "@/assets/qr-code.jpg";
 
