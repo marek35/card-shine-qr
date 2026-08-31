@@ -245,7 +245,7 @@ function Index() {
           </div>
           <div className="flex items-center gap-3">
             <LanguageToggle lang={lang} onChange={setLang} />
-            
+            <a
               href="#bestellen"
               className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
             >
@@ -266,7 +266,7 @@ function Index() {
                 {t.heroText}
               </p>
               <div className="flex flex-col items-start gap-3">
-                
+                <a
                   href="#bestellen"
                   className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
                 >
@@ -346,7 +346,7 @@ function Index() {
                   <p className="max-w-[45ch] text-pretty leading-relaxed text-muted-foreground">
                     {service.text}
                   </p>
-                  
+                  <a
                     href="#anfrage"
                     className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
                   >
