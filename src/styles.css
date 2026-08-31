@@ -19,6 +19,12 @@
  */
 
 @theme inline {
+  --color-google-blue: var(--google-blue);
+  --color-google-red: var(--google-red);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-green: var(--google-green);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -63,7 +69,12 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --google-blue: oklch(0.623 0.187 259.8);
+  --google-red: oklch(0.601 0.221 27.3);
+  --google-yellow: oklch(0.807 0.163 79.4);
+  --google-green: oklch(0.63 0.148 147.4);
+  --background: oklch(0.985 0 0);
+
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
@@ -141,4 +152,23 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(10deg) rotateY(-15deg) rotateZ(2deg);
+  }
+  50% {
+    transform: translateY(-20px) rotateX(12deg) rotateY(-12deg) rotateZ(3deg);
+  }
+}
+
+@utility card-float {
+  transform: rotateX(10deg) rotateY(-15deg) rotateZ(2deg);
+  animation: card-float 6s ease-in-out infinite;
 }
