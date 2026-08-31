@@ -140,7 +140,7 @@ function ContactForm() {
     setError(null);
 
     try {
-      await submitContactRequest({ data: { email, message } });
+      await submitContactRequest({ email, message });
       setStatus("success");
       setEmail("");
       setMessage("");
