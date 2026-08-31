@@ -403,6 +403,24 @@ function Index() {
         </div>
       </section>
 
+      <section id="anfrage" className="bg-muted py-24">
+        <div className="mx-auto max-w-screen-xl px-6">
+          <div className="grid items-start gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+                Lass uns loslegen
+              </h2>
+              <p className="max-w-[45ch] text-pretty text-muted-foreground">
+                Egal ob neue Webseite, Optimierung oder ein smarter AI-Agent – gib deine E-Mail an, ich komme auf dich zu und wir besprechen alles.
+              </p>
+            </div>
+            <div className="rounded-[2rem] bg-card p-8 ring-1 ring-black/5">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-border py-12">
         <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
           <div className="flex items-center gap-2">
