@@ -7,13 +7,13 @@ import qrCode from "@/assets/qr-code.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Google Review Karte mit NFC & QR – 50 € einmalig" },
+      { title: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
       {
         name: "description",
         content:
-          "Lass deine glücklichen Kunden für dich sprechen: NFC- & QR-Karte für mehr Google-Bewertungen. Einmalig 50 € inkl. Programmierung und Karte.",
+          "Lass deine glücklichen Kunden für dich sprechen: NFC- & QR-Karte für mehr Google-Bewertungen. Einmalig 49,99 € inkl. Programmierung und Karte.",
       },
-      { property: "og:title", content: "Google Review Karte mit NFC & QR – 50 € einmalig" },
+      { property: "og:title", content: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
       {
         property: "og:description",
         content: "Tippen oder scannen – deine Kunden bewerten dich in Sekunden bei Google.",
@@ -146,17 +146,14 @@ function Index() {
                 Zeig deine guten Leistungen nach außen. Deine Kunden tippen oder scannen – und landen
                 direkt im Google-Bewertungsfenster. Kein Suchen, kein Stress.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col items-start gap-3">
                 <a
                   href="#bestellen"
                   className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
                 >
-                  Karte sichern — 50 €
+                  Karte sichern — 49,99 €
                 </a>
-                <div className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm text-foreground">
-                  <span className="size-2 rounded-full bg-google-green" />
-                  Versandkostenfrei in DE
-                </div>
+                <p className="text-sm text-muted-foreground">Einmalige Ausgabe · Kein Abo</p>
               </div>
             </div>
 
@@ -165,7 +162,7 @@ function Index() {
 
               <div className="absolute right-0 top-0 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-google-yellow shadow-lg ring-4 ring-background lg:-right-4 lg:size-32">
                 <span className="text-xs font-bold uppercase tracking-widest text-foreground">Nur</span>
-                <span className="text-2xl font-bold text-foreground lg:text-3xl">50 €</span>
+                <span className="text-2xl font-bold text-foreground lg:text-3xl">49,99 €</span>
                 <span className="text-center text-[10px] font-medium text-foreground">Alles inkl.</span>
               </div>
             </div>
@@ -223,7 +220,7 @@ function Index() {
                 Bereit für 5-Sterne-Wachstum?
               </h2>
               <p className="mb-8 max-w-[40ch] text-muted-foreground">
-                Für 50 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein
+                Für 49,99 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein
                 Google-Profil – konfiguriert und versendet innerhalb von 48 h.
               </p>
               <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
@@ -250,8 +247,8 @@ function Index() {
                     <InfinityIcon className="size-5 text-foreground" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-background">Kein Abo</p>
-                    <p className="text-xs text-muted-foreground">Einmalzahlung für immer.</p>
+                    <p className="text-sm font-medium text-background">Einmalige Ausgabe</p>
+                    <p className="text-xs text-muted-foreground">Kein Abo, keine Folgekosten.</p>
                   </div>
                 </div>
                 <div className="flex translate-x-4 items-center gap-4 rounded-2xl bg-background/5 p-4 ring-1 ring-background/10">
