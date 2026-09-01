@@ -14,6 +14,7 @@ import {
   Mail,
 } from "lucide-react";
 import qrCode from "@/assets/qr-code.jpg";
+import demoVideo from "@/assets/demo.mp4";
 import { translations, type Dict } from "@/lib/i18n";
 import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
@@ -210,6 +211,15 @@ function Index() {
                 </div>
               );
             })}
+          </div>
+          <div className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-black/10">
+            <video
+              src={demoVideo}
+              controls
+              playsInline
+              preload="metadata"
+              className="block w-full"
+            />
           </div>
         </div>
       </section>
