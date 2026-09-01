@@ -244,6 +244,12 @@ function Index() {
             <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
           </div>
           <div className="flex items-center gap-3">
+            <Link
+              to="/preise"
+              className="hidden text-sm font-medium text-foreground transition-colors hover:text-google-blue sm:inline-block"
+            >
+              {t.pricing}
+            </Link>
             <LanguageToggle lang={lang} onChange={setLang} />
             <a
               href="#bestellen"
@@ -438,6 +444,7 @@ function Index() {
             </span>
           </div>
           <div className="flex gap-8 text-sm text-muted-foreground">
+            <Link to="/preise" className="transition-colors hover:text-foreground">{t.pricing}</Link>
             <Link to="/impressum" className="transition-colors hover:text-foreground">{t.imprint}</Link>
             <Link to="/datenschutz" className="transition-colors hover:text-foreground">{t.privacy}</Link>
             <a href="#anfrage" className="transition-colors hover:text-foreground">{t.contact}</a>

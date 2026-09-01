@@ -60,6 +60,7 @@ export const translations = {
     imprint: "Impressum",
     privacy: "Datenschutz",
     contact: "Kontakt",
+    pricing: "Preise",
   },
   en: {
     brand: "Scan&Smile",
@@ -120,6 +121,7 @@ export const translations = {
     imprint: "Imprint",
     privacy: "Privacy",
     contact: "Contact",
+    pricing: "Pricing",
   },
 } as const;
 
