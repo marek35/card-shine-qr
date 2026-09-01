@@ -34,7 +34,7 @@ const tiers = [
   },
   {
     name: "Deluxe",
-    price: "49,99 € + 30 €",
+    price: "49,99 € + 20 €",
     priceNote: "einmalig + pro Monat",
     highlight: false,
     features: [
