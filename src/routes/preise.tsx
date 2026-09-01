@@ -74,7 +74,7 @@ function Preise() {
                     </li>
                   ))}
                 </ul>
-                <RevealButton href="/#anfrage" label={t.pricingCta} light={highlight} />
+                <RevealButton href="/kontakt" label={t.pricingCta} light={highlight} />
               </div>
             );
           })}

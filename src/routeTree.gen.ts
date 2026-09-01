@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as PreiseRouteImport } from './routes/preise'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const ImpressumRoute = ImpressumRouteImport.update({
   path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PreiseRoute = PreiseRouteImport.update({
   id: '/preise',
   path: '/preise',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/checkout': typeof CheckoutRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/checkout': typeof CheckoutRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/checkout': typeof CheckoutRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
   '/preise': typeof PreiseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/checkout' | '/datenschutz' | '/impressum' | '/preise'
+  fullPaths:
+    '/' | '/checkout' | '/datenschutz' | '/impressum' | '/kontakt' | '/preise'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/checkout' | '/datenschutz' | '/impressum' | '/preise'
-  id: '__root__' | '/' | '/checkout' | '/datenschutz' | '/impressum' | '/preise'
+  to: '/' | '/checkout' | '/datenschutz' | '/impressum' | '/kontakt' | '/preise'
+  id:
+    | '__root__'
+    | '/'
+    | '/checkout'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/preise'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   CheckoutRoute: typeof CheckoutRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
+  KontaktRoute: typeof KontaktRoute
   PreiseRoute: typeof PreiseRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/preise': {
       id: '/preise'
       path: '/preise'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutRoute: CheckoutRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
+  KontaktRoute: KontaktRoute,
   PreiseRoute: PreiseRoute,
 }
 export const routeTree = rootRouteImport
