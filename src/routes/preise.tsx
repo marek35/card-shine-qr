@@ -23,7 +23,7 @@ function Preise() {
   const t = translations[lang] as unknown as Dict;
 
   return (
-    <div className="font-sans" lang={lang}>
+    <div className="hero-glow min-h-screen font-sans" lang={lang}>
       <div className="mx-auto max-w-screen-xl px-6 py-16">
         <div className="mb-8 flex items-center justify-between">
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
