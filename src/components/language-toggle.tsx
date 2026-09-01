@@ -5,11 +5,11 @@ export function LanguageToggle({ lang, onChange }: { lang: Lang; onChange: (l: L
   return (
     <div
       role="group"
-      aria-label="Sprache / Language"
+      aria-label="Sprache / Language / Idioma"
       className="flex items-center gap-1 rounded-full bg-muted p-1 ring-1 ring-black/5"
     >
       <Languages className="ml-1 size-4 text-muted-foreground" aria-hidden="true" />
-      {(["de", "en"] as const).map((l) => (
+      {(["de", "en", "es"] as const).map((l) => (
         <button
           key={l}
           type="button"

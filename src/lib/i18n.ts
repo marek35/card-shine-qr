@@ -1,4 +1,4 @@
-export type Lang = "de" | "en";
+export type Lang = "de" | "en" | "es";
 
 export const translations = {
   de: {
@@ -204,6 +204,108 @@ export const translations = {
     checkoutSubmit: "Request order",
     checkoutSending: "Sending…",
     checkoutSuccess: "Thanks! We'll be in touch with the payment details.",
+  },
+  es: {
+    brand: "Scan&Smile",
+    navCta: "Pedir ahora",
+    heroTitle: "Deja que tus clientes felices hablen por ti",
+    heroText:
+      "Muestra tu buen trabajo. Tus clientes tocan o escanean – y llegan directo a la ventana de reseñas de Google. Sin buscar, sin estrés.",
+    heroCta: "Consigue tu tarjeta — 49,99 €",
+    heroNote: "Pago único · Sin suscripción",
+    badgeOnly: "Solo",
+    badgeAll: "Todo incluido",
+    cardFlip: "Girar tarjeta",
+    cardFrontTitle: "Califícanos en Google",
+    cardFront: "Frente · Toca aquí",
+    cardBack: "Reverso",
+    cardBackHint: "Toca o escanea para dejarnos una reseña",
+    qrAlt: "Código QR hacia la página de reseñas de Google",
+    howTitle: "Así de fácil funciona",
+    steps: [
+      { title: "Coloca la tarjeta", text: "Pon la tarjeta en tu mostrador o en las mesas." },
+      { title: "Toca o escanea", text: "Los clientes acercan su móvil a la tarjeta o escanean el código QR." },
+      { title: "Recibe reseñas", text: "El formulario de Google se abre al instante. ¡Estrellas y listo!" },
+    ],
+    servicesTitle: "Mucho más que reseñas",
+    servicesText:
+      "¿Necesitas ayuda con tu presencia digital? Aquí tienes dos servicios con los que podemos ayudarte.",
+    services: [
+      {
+        title: "Página web nueva",
+        text: "Desde la primera idea hasta una landing page terminada o un sitio complejo – construimos tu nueva web a medida de tu negocio.",
+      },
+      {
+        title: "Mejoras y agentes de IA",
+        text: "Renovamos tu web actual, automatizamos procesos o integramos agentes de IA inteligentes que te quitan trabajo de encima.",
+      },
+    ],
+    serviceCta: "Enviar solicitud",
+    orderTitle: "¿Listo para crecer con 5 estrellas?",
+    orderText:
+      "Por 49,99 € recibes la tarjeta NFC física con la programación a tu perfil de Google incluida – configurada y enviada en 48 h.",
+    orderEmail: "Tu dirección de correo",
+    orderCta: "Iniciar pedido",
+    onceTitle: "Pago único",
+    onceText: "Sin suscripción, sin costes adicionales.",
+    readyTitle: "Lista para usar al instante",
+    readyText: "Nosotros lo configuramos todo por ti.",
+    contactEyebrow: "Crear ticket",
+    contactTitle: "Empecemos",
+    contactText:
+      "Ya sea una web nueva, una optimización o un agente de IA inteligente – déjanos tu correo, te contactamos y lo hablamos todo.",
+    formEmail: "Tu correo",
+    formEmailPlaceholder: "maria@ejemplo.es",
+    formMessage: "¿Qué necesitas?",
+    formMessagePlaceholder: "Necesito una web nueva / un agente de IA / ayuda con...",
+    formSending: "Enviando…",
+    formSubmit: "Enviar solicitud – te contacto",
+    formSuccess: "¡Gracias! Tu solicitud ha llegado – me pondré en contacto contigo.",
+    formErrorFallback: "Algo salió mal.",
+    formSla: "Normalmente respondemos en las próximas 48 horas.",
+    imprint: "Aviso legal",
+    privacy: "Privacidad",
+    contact: "Contacto",
+    pricing: "Precios",
+    pricingBack: "← Volver al inicio",
+    pricingTitle: "Precios",
+    pricingSubtitle: "Elige el plan que se ajuste a tu negocio — mejorable en cualquier momento.",
+    pricingPopular: "Popular",
+    pricingCta: "Enviar solicitud",
+    pricingTiers: [
+      {
+        name: "Standard",
+        price: "49,99 €",
+        priceNote: "pago único",
+        features: ["Instalación y puesta en marcha", "Tarjeta física NFC y QR", "Lista para usar de inmediato"],
+      },
+      {
+        name: "Premium",
+        price: "49,99 € + 10 €",
+        priceNote: "pago único + al mes",
+        features: ["Todo lo de Standard", "Tarjeta de sellos digital que tus clientes pueden coleccionar"],
+      },
+      {
+        name: "Deluxe",
+        price: "49,99 € + 20 €",
+        priceNote: "pago único + al mes",
+        features: [
+          "Todo lo de Premium",
+          "Tu propia landing page",
+          "Mantenemos tu carta actualizada (ideal para restaurantes)",
+          "Mantenimiento y soporte continuo",
+        ],
+      },
+    ],
+    checkoutBack: "← Volver al inicio",
+    checkoutTitle: "Pedido",
+    checkoutSubtitle: "Ya casi está — deja tu correo y nos encargamos del resto.",
+    checkoutSummaryTitle: "Tu pedido",
+    checkoutNote:
+      "El pago con tarjeta a través de Stripe estará disponible pronto. Mientras tanto, te enviaremos los datos de pago por correo tras esta solicitud.",
+    checkoutSubmit: "Solicitar pedido",
+    checkoutSending: "Enviando…",
+    checkoutSuccess: "¡Gracias! Nos pondremos en contacto contigo con los datos de pago.",
   },
 } as const;
 

@@ -6,7 +6,8 @@ const STORAGE_KEY = "lang";
 function readStoredLang(): Lang {
   if (typeof window === "undefined") return "de";
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "en" ? "en" : "de";
+  if (stored === "en" || stored === "es") return stored;
+  return "de";
 }
 
 export function useLang() {

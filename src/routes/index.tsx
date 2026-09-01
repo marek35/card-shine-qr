@@ -178,7 +178,7 @@ function Index() {
                   {t.badgeOnly}
                 </span>
                 <span className="text-2xl font-bold text-foreground lg:text-3xl">
-                  {lang === "de" ? "49,99 €" : "€49.99"}
+                  {lang === "en" ? "€49.99" : "49,99 €"}
                 </span>
                 <span className="text-center text-[10px] font-medium text-foreground">{t.badgeAll}</span>
               </div>
