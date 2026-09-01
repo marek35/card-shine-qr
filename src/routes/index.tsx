@@ -211,7 +211,7 @@ function Index() {
 
   return (
     <div className="font-sans" lang={lang}>
-      <nav className="sticky top-0 z-50 border-b border-border/60 bg-background">
+      <nav className="hero-glow sticky top-0 z-50 border-b border-border/60">
         <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
           <BrandLogo iconClassName="h-12" textClassName="text-xl" />
           <div className="flex items-center gap-3">
