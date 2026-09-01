@@ -184,6 +184,77 @@
   -webkit-backface-visibility: hidden;
 }
 
+/* Reveal button — letters slide in on hover, adapted from https://uiverse.io/doniaskima/happy-turtle-32 */
+.reveal-btn {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--color-foreground);
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 700;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.reveal-btn--light {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  border-color: var(--color-background);
+}
+
+.reveal-btn .original {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  display: grid;
+  inset: 0;
+  place-content: center;
+  position: absolute;
+  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  white-space: nowrap;
+}
+
+.reveal-btn--light .original {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+.reveal-btn:hover .original {
+  transform: translateY(100%);
+}
+
+.reveal-btn .letters {
+  display: inline-flex;
+}
+
+.reveal-btn .letters span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition:
+    transform 0.2s cubic-bezier(0.87, 0, 0.13, 1),
+    opacity 0.2s;
+  white-space: pre;
+}
+
+.reveal-btn .letters span:nth-child(2n) {
+  transform: translateY(15px);
+}
+
+.reveal-btn:hover .letters span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @utility hero-glow {
   background:
     radial-gradient(70% 70% at 20% 20%, color-mix(in oklab, oklch(0.85 0.12 350) 55%, transparent), transparent 60%),

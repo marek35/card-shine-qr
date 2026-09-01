@@ -19,6 +19,7 @@ import {
 import qrCode from "@/assets/qr-code.jpg";
 import { submitContactRequest } from "@/lib/contact.functions";
 import { translations, type Dict, type Lang } from "@/lib/i18n";
+import { RevealButton } from "@/components/reveal-button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -244,12 +245,9 @@ function Index() {
             <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
           </div>
           <div className="flex items-center gap-3">
-            <Link
-              to="/preise"
-              className="hidden text-sm font-medium text-foreground transition-colors hover:text-google-blue sm:inline-block"
-            >
-              {t.pricing}
-            </Link>
+            <div className="hidden sm:inline-block">
+              <RevealButton href="/preise" label={t.pricing} compact />
+            </div>
             <LanguageToggle lang={lang} onChange={setLang} />
             <a
               href="#bestellen"

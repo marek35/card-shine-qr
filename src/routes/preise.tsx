@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BadgeCheck, Check } from "lucide-react";
+import { RevealButton } from "@/components/reveal-button";
 
 export const Route = createFileRoute("/preise")({
   head: () => ({
@@ -80,13 +81,7 @@ function Preise() {
               <h2 className="mb-2 text-xl font-semibold">{tier.name}</h2>
               <div className="mb-6">
                 <span className="text-3xl font-bold tracking-tight">{tier.price}</span>
-                <p
-                  className={`mt-1 text-sm ${
-                    tier.highlight ? "text-muted-foreground" : "text-muted-foreground"
-                  }`}
-                >
-                  {tier.priceNote}
-                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{tier.priceNote}</p>
               </div>
               <ul className="mb-8 flex flex-1 flex-col gap-3">
                 {tier.features.map((feature) => (
@@ -100,16 +95,7 @@ function Preise() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="/#anfrage"
-                className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-transform hover:scale-[1.02] active:scale-95 ${
-                  tier.highlight
-                    ? "bg-background text-foreground"
-                    : "bg-google-blue text-background ring-2 ring-google-blue/20"
-                }`}
-              >
-                Anfrage stellen
-              </a>
+              <RevealButton href="/#anfrage" label="Anfrage stellen" light={tier.highlight} />
             </div>
           ))}
         </div>
