@@ -20,6 +20,7 @@ import { submitContactRequest } from "@/lib/contact.functions";
 import { translations, type Dict } from "@/lib/i18n";
 import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
+import { NfcDoodle } from "@/components/nfc-doodle";
 import { useLang } from "@/lib/use-lang";
 
 export const Route = createFileRoute("/")({
@@ -213,10 +214,7 @@ function Index() {
       <nav className="sticky top-0 z-50 border-b border-border/60 bg-background">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <div className="relative flex size-8 items-center justify-center rounded-lg bg-google-blue">
-              <span className="absolute inset-0 rounded-lg bg-google-blue opacity-75 animate-ping" />
-              <Nfc className="relative size-4 text-background" />
-            </div>
+            <NfcDoodle className="size-10" />
             <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
           </div>
           <div className="flex items-center gap-3">
@@ -409,9 +407,7 @@ function Index() {
       <footer className="border-t border-border py-12">
         <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex size-6 items-center justify-center rounded-md bg-google-blue">
-              <Nfc className="size-3 text-background" />
-            </div>
+            <NfcDoodle className="size-8" />
             <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
               {t.brand}
             </span>
