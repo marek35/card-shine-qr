@@ -201,6 +201,7 @@ function ContactForm({ t }: { t: Dict }) {
       </button>
       {status === "success" && <p className="text-sm text-google-green">{t.formSuccess}</p>}
       {status === "error" && <p className="text-sm text-google-red">{error}</p>}
+      <p className="text-xs text-muted-foreground">{t.formSla}</p>
     </form>
   );
 }
@@ -378,6 +379,9 @@ function Index() {
         <div className="mx-auto max-w-screen-xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
+              <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-google-blue">
+                {t.contactEyebrow}
+              </p>
               <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
                 {t.contactTitle}
               </h2>

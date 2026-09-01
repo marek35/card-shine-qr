@@ -46,6 +46,7 @@ export const translations = {
     onceText: "Kein Abo, keine Folgekosten.",
     readyTitle: "Sofort startklar",
     readyText: "Wir richten alles für dich ein.",
+    contactEyebrow: "Ticket erstellen",
     contactTitle: "Lass uns loslegen",
     contactText:
       "Egal ob neue Webseite, Optimierung oder ein smarter AI-Agent – gib deine E-Mail an, ich komme auf dich zu und wir besprechen alles.",
@@ -57,6 +58,7 @@ export const translations = {
     formSubmit: "Anfrage senden – ich melde mich",
     formSuccess: "Danke! Deine Anfrage ist angekommen – ich melde mich bei dir.",
     formErrorFallback: "Etwas ist schiefgelaufen.",
+    formSla: "Wir antworten in der Regel innerhalb der nächsten 48 Stunden.",
     imprint: "Impressum",
     privacy: "Datenschutz",
     contact: "Kontakt",
@@ -146,6 +148,7 @@ export const translations = {
     onceText: "No subscription, no recurring fees.",
     readyTitle: "Ready to go",
     readyText: "We set everything up for you.",
+    contactEyebrow: "Create a ticket",
     contactTitle: "Let's get started",
     contactText:
       "Whether it's a new website, an optimisation or a smart AI agent – leave your email, I'll reach out and we'll talk it through.",
@@ -157,6 +160,7 @@ export const translations = {
     formSubmit: "Send request – I'll get back to you",
     formSuccess: "Thanks! Your request came through – I'll be in touch.",
     formErrorFallback: "Something went wrong.",
+    formSla: "We usually reply within the next 48 hours.",
     imprint: "Imprint",
     privacy: "Privacy",
     contact: "Contact",
