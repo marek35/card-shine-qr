@@ -61,6 +61,36 @@ export const translations = {
     privacy: "Datenschutz",
     contact: "Kontakt",
     pricing: "Preise",
+    pricingBack: "← Zurück zur Startseite",
+    pricingTitle: "Preise",
+    pricingSubtitle: "Wähle das Paket, das zu deinem Business passt — jederzeit erweiterbar.",
+    pricingPopular: "Beliebt",
+    pricingCta: "Anfrage stellen",
+    pricingTiers: [
+      {
+        name: "Standard",
+        price: "49,99 €",
+        priceNote: "einmalig",
+        features: ["Installation & Onboarding", "Physische NFC- & QR-Karte", "Direkt einsatzbereit"],
+      },
+      {
+        name: "Premium",
+        price: "49,99 € + 10 €",
+        priceNote: "einmalig + pro Monat",
+        features: ["Alles aus Standard", "Digitale Stempelkarte, die deine Kunden sammeln können"],
+      },
+      {
+        name: "Deluxe",
+        price: "49,99 € + 20 €",
+        priceNote: "einmalig + pro Monat",
+        features: [
+          "Alles aus Premium",
+          "Eigene Landingpage für dein Business",
+          "Pflege deiner Speisekarte (ideal für Restaurants)",
+          "Laufende Wartung & Support",
+        ],
+      },
+    ],
   },
   en: {
     brand: "Scan&Smile",
@@ -122,6 +152,36 @@ export const translations = {
     privacy: "Privacy",
     contact: "Contact",
     pricing: "Pricing",
+    pricingBack: "← Back to home",
+    pricingTitle: "Pricing",
+    pricingSubtitle: "Choose the plan that fits your business — upgrade any time.",
+    pricingPopular: "Popular",
+    pricingCta: "Send a request",
+    pricingTiers: [
+      {
+        name: "Standard",
+        price: "€49.99",
+        priceNote: "one-time",
+        features: ["Installation & onboarding", "Physical NFC & QR card", "Ready to use right away"],
+      },
+      {
+        name: "Premium",
+        price: "€49.99 + €10",
+        priceNote: "one-time + per month",
+        features: ["Everything in Standard", "Digital loyalty card your customers can collect stamps on"],
+      },
+      {
+        name: "Deluxe",
+        price: "€49.99 + €20",
+        priceNote: "one-time + per month",
+        features: [
+          "Everything in Premium",
+          "Your own landing page",
+          "We keep your menu up to date (great for restaurants)",
+          "Ongoing maintenance & support",
+        ],
+      },
+    ],
   },
 } as const;
 
