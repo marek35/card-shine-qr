@@ -212,9 +212,9 @@ function Index() {
   return (
     <div className="font-sans" lang={lang}>
       <nav className="sticky top-0 z-50 border-b border-border/60 bg-background">
-        <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
+        <div className="mx-auto flex h-28 max-w-screen-xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <NfcDoodle className="size-16" />
+            <NfcDoodle className="size-24" />
             <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
           </div>
           <div className="flex items-center gap-3">
