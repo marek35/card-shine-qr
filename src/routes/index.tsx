@@ -20,7 +20,7 @@ import { submitContactRequest } from "@/lib/contact.functions";
 import { translations, type Dict } from "@/lib/i18n";
 import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
-import { NfcDoodle } from "@/components/nfc-doodle";
+import { BrandLogo } from "@/components/brand-logo";
 import { useLang } from "@/lib/use-lang";
 
 export const Route = createFileRoute("/")({
@@ -212,11 +212,8 @@ function Index() {
   return (
     <div className="font-sans" lang={lang}>
       <nav className="sticky top-0 z-50 border-b border-border/60 bg-background">
-        <div className="mx-auto flex h-28 max-w-screen-xl items-center justify-between px-6">
-          <div className="flex items-center gap-2">
-            <NfcDoodle className="size-24" />
-            <span className="font-semibold tracking-tight text-foreground">{t.brand}</span>
-          </div>
+        <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
+          <BrandLogo iconClassName="h-12" textClassName="text-xl" />
           <div className="flex items-center gap-3">
             <div className="hidden sm:inline-block">
               <RevealButton href="/preise" label={t.pricing} compact />
@@ -406,12 +403,7 @@ function Index() {
 
       <footer className="border-t border-border py-12">
         <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <NfcDoodle className="size-8" />
-            <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-              {t.brand}
-            </span>
-          </div>
+          <BrandLogo iconClassName="h-8" textClassName="text-xs" />
           <div className="flex gap-8 text-sm text-muted-foreground">
             <Link to="/preise" className="transition-colors hover:text-foreground">{t.pricing}</Link>
             <Link to="/impressum" className="transition-colors hover:text-foreground">{t.imprint}</Link>
