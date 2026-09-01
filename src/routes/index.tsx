@@ -211,21 +211,18 @@ function Index() {
 
   return (
     <div className="font-sans" lang={lang}>
-      <nav className="hero-glow sticky top-0 z-50 border-b border-border/60">
-        <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
-          <BrandLogo iconClassName="h-12" textClassName="text-xl" />
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:inline-block">
-              <RevealButton href="/preise" label={t.pricing} compact />
-            </div>
-            <LanguageToggle lang={lang} onChange={setLang} />
-            <a
-              href="#bestellen"
-              className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
-            >
-              {t.navCta}
-            </a>
+      <nav className="sticky top-4 z-50 flex justify-center px-4">
+        <div className="flex items-center gap-3 rounded-full bg-background px-4 py-2 shadow-lg ring-1 ring-black/5">
+          <div className="hidden sm:inline-block">
+            <RevealButton href="/preise" label={t.pricing} compact />
           </div>
+          <LanguageToggle lang={lang} onChange={setLang} />
+          <a
+            href="#bestellen"
+            className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
+          >
+            {t.navCta}
+          </a>
         </div>
       </nav>
 
