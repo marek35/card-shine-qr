@@ -217,12 +217,12 @@ function Index() {
             <RevealButton href="/preise" label={t.pricing} compact />
           </div>
           <LanguageToggle lang={lang} onChange={setLang} />
-          <a
-            href="#bestellen"
+          <Link
+            to="/checkout"
             className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
           >
             {t.navCta}
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -237,12 +237,12 @@ function Index() {
                 {t.heroText}
               </p>
               <div className="flex flex-col items-start gap-3">
-                <a
-                  href="#bestellen"
+                <Link
+                  to="/checkout"
                   className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
                 >
                   {t.heroCta}
-                </a>
+                </Link>
                 <p className="text-sm text-muted-foreground">{t.heroNote}</p>
               </div>
             </div>
@@ -339,20 +339,12 @@ function Index() {
                 {t.orderTitle}
               </h2>
               <p className="mb-8 max-w-[40ch] text-muted-foreground">{t.orderText}</p>
-              <form className="flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  required
-                  placeholder={t.orderEmail}
-                  className="w-full rounded-full bg-background/10 px-6 py-3 text-background outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-google-blue sm:w-64"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-transform hover:scale-[1.02] active:scale-95"
-                >
-                  {t.orderCta}
-                </button>
-              </form>
+              <Link
+                to="/checkout"
+                className="inline-flex items-center justify-center rounded-full bg-background px-6 py-3 text-sm font-medium text-foreground transition-transform hover:scale-[1.02] active:scale-95"
+              >
+                {t.orderCta}
+              </Link>
             </div>
 
             <div className="relative w-full max-w-sm">

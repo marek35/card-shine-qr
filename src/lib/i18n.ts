@@ -91,6 +91,15 @@ export const translations = {
         ],
       },
     ],
+    checkoutBack: "← Zurück zur Startseite",
+    checkoutTitle: "Bestellung",
+    checkoutSubtitle: "Fast geschafft — trag deine E-Mail ein, den Rest klären wir mit dir.",
+    checkoutSummaryTitle: "Deine Bestellung",
+    checkoutNote:
+      "Die Kartenzahlung über Stripe folgt in Kürze. Bis dahin senden wir dir nach dieser Anfrage die Zahlungsdetails per E-Mail zu.",
+    checkoutSubmit: "Bestellung anfragen",
+    checkoutSending: "Wird gesendet…",
+    checkoutSuccess: "Danke! Wir melden uns mit den Zahlungsdetails bei dir.",
   },
   en: {
     brand: "Scan&Smile",
@@ -182,6 +191,15 @@ export const translations = {
         ],
       },
     ],
+    checkoutBack: "← Back to home",
+    checkoutTitle: "Checkout",
+    checkoutSubtitle: "Almost there — leave your email and we'll take it from here.",
+    checkoutSummaryTitle: "Your order",
+    checkoutNote:
+      "Card payment via Stripe is coming soon. Until then, we'll email you the payment details after this request.",
+    checkoutSubmit: "Request order",
+    checkoutSending: "Sending…",
+    checkoutSuccess: "Thanks! We'll be in touch with the payment details.",
   },
 } as const;
 
