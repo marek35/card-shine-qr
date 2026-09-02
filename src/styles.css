@@ -263,3 +263,27 @@
     radial-gradient(55% 55% at 10% 90%, color-mix(in oklab, oklch(0.82 0.12 255) 40%, transparent), transparent 60%),
     linear-gradient(135deg, oklch(0.98 0.01 320), oklch(0.96 0.008 260));
 }
+
+@utility hero-dark {
+  background:
+    radial-gradient(120% 90% at 50% 0%, oklch(0.26 0.05 265) 0%, transparent 60%),
+    linear-gradient(180deg, oklch(0.16 0.03 264), oklch(0.1 0.02 264));
+}
+
+@keyframes glow-drift-a {
+  0%, 100% { transform: translate(-8%, -8%) scale(1); }
+  50% { transform: translate(9%, 6%) scale(1.15); }
+}
+
+@keyframes glow-drift-b {
+  0%, 100% { transform: translate(8%, 10%) scale(1); }
+  50% { transform: translate(-7%, -9%) scale(1.1); }
+}
+
+@utility animate-glow-drift-a {
+  animation: glow-drift-a 17s ease-in-out infinite;
+}
+
+@utility animate-glow-drift-b {
+  animation: glow-drift-b 21s ease-in-out infinite;
+}
