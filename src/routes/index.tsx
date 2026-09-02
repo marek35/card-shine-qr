@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
 
 import {
   Nfc,
@@ -20,6 +21,8 @@ import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { BrandLogo } from "@/components/brand-logo";
 import { ServicesMenu } from "@/components/services-menu";
+import { MobileMenu } from "@/components/mobile-menu";
+import { Reveal } from "@/components/reveal";
 import { useLang } from "@/lib/use-lang";
 
 export const Route = createFileRoute("/")({
@@ -142,13 +145,18 @@ function Index() {
           <div className="hidden sm:inline-block">
             <RevealButton href="/preise" label={t.pricing} compact />
           </div>
-          <LanguageToggle lang={lang} onChange={setLang} />
-          <Link
-            to="/checkout"
-            className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform hover:scale-[1.02]"
-          >
-            {t.navCta}
-          </Link>
+          <div className="hidden sm:block">
+            <LanguageToggle lang={lang} onChange={setLang} />
+          </div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Link
+              to="/checkout"
+              className="inline-flex items-center justify-center rounded-full bg-google-blue px-4 py-2 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-colors hover:bg-google-blue/90"
+            >
+              {t.navCta}
+            </Link>
+          </motion.div>
+          <MobileMenu t={t} lang={lang} setLang={setLang} />
         </div>
       </nav>
 
@@ -192,15 +200,17 @@ function Index() {
 
       <section className="bg-muted py-24">
         <div className="mx-auto max-w-screen-xl px-6">
-          <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight text-foreground">
-            {t.howTitle}
-          </h2>
+          <Reveal>
+            <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight text-foreground">
+              {t.howTitle}
+            </h2>
+          </Reveal>
           <div className="grid gap-12 md:grid-cols-3">
             {[MapPin, Smartphone, Star].map((Icon, i) => {
               const color = ["bg-google-blue", "bg-google-red", "bg-google-green"][i];
               const step = t.steps[i];
               return (
-                <div key={step.title} className="space-y-4 text-center">
+                <Reveal key={step.title} delay={i * 0.1} className="space-y-4 text-center">
                   <div
                     className={`mx-auto flex size-12 items-center justify-center rounded-full ${color} text-background`}
                   >
@@ -210,11 +220,11 @@ function Index() {
                   <p className="mx-auto max-w-[35ch] text-pretty text-sm leading-relaxed text-muted-foreground">
                     {step.text}
                   </p>
-                </div>
+                </Reveal>
               );
             })}
           </div>
-          <div className="mx-auto mt-16 max-w-3xl rounded-[2.5rem] bg-card p-3 shadow-2xl ring-1 ring-black/10">
+          <Reveal delay={0.15} className="mx-auto mt-16 max-w-3xl rounded-[2.5rem] bg-card p-3 shadow-2xl ring-1 ring-black/10">
             <video
               src={demoVideo}
               controls
@@ -222,26 +232,29 @@ function Index() {
               preload="metadata"
               className="block w-full rounded-[1.75rem]"
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="services" className="py-24">
         <div className="mx-auto max-w-screen-xl px-6">
-          <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
-            {t.servicesTitle}
-          </h2>
-          <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
-            {t.servicesText}
-          </p>
+          <Reveal>
+            <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight text-foreground">
+              {t.servicesTitle}
+            </h2>
+            <p className="mx-auto mb-16 max-w-[60ch] text-center text-muted-foreground">
+              {t.servicesText}
+            </p>
+          </Reveal>
           <div className="grid gap-8 md:grid-cols-2">
             {[Monitor, Bot].map((Icon, i) => {
               const color = ["bg-google-blue", "bg-google-red"][i];
               const service = t.services[i];
               const href = i === 0 ? "/webseite" : "/automatisierung";
               return (
-                <div
+                <Reveal
                   key={service.title}
+                  delay={i * 0.1}
                   className="group relative overflow-hidden rounded-[2rem] bg-card p-8 ring-1 ring-black/5 transition-transform hover:-translate-y-1"
                 >
                   <div
@@ -260,7 +273,7 @@ function Index() {
                     <Mail className="size-4" />
                     {t.serviceCta}
                   </Link>
-                </div>
+                </Reveal>
               );
             })}
           </div>
@@ -269,7 +282,7 @@ function Index() {
 
       <section id="bestellen" className="py-24">
         <div className="mx-auto max-w-screen-xl px-6">
-          <div className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
+          <Reveal className="relative flex flex-col items-center justify-between gap-12 overflow-hidden rounded-[2rem] bg-foreground p-8 lg:flex-row lg:p-16">
             <div className="relative z-10">
               <h2 className="mb-4 text-balance text-3xl font-semibold leading-tight text-background lg:text-4xl">
                 {t.orderTitle}
@@ -306,20 +319,22 @@ function Index() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="anfrage" className="bg-muted py-24">
         <div className="mx-auto max-w-screen-xl px-6 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-google-blue">
-            {t.contactEyebrow}
-          </p>
-          <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
-            {t.contactTitle}
-          </h2>
-          <p className="mx-auto mb-8 max-w-[45ch] text-pretty text-muted-foreground">{t.contactText}</p>
-          <RevealButton href="/kontakt" label={t.contactEyebrow} />
+          <Reveal>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-google-blue">
+              {t.contactEyebrow}
+            </p>
+            <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground lg:text-4xl">
+              {t.contactTitle}
+            </h2>
+            <p className="mx-auto mb-8 max-w-[45ch] text-pretty text-muted-foreground">{t.contactText}</p>
+            <RevealButton href="/kontakt" label={t.contactEyebrow} />
+          </Reveal>
         </div>
       </section>
 
