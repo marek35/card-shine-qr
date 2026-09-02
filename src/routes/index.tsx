@@ -24,16 +24,16 @@ import { useLang } from "@/lib/use-lang";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
+      { title: "Google Review Karte mit NFC & QR, 49,99 € einmalig" },
       {
         name: "description",
         content:
           "Lass deine glücklichen Kunden für dich sprechen: NFC- & QR-Karte für mehr Google-Bewertungen. Einmalig 49,99 € inkl. Programmierung und Karte.",
       },
-      { property: "og:title", content: "Google Review Karte mit NFC & QR – 49,99 € einmalig" },
+      { property: "og:title", content: "Google Review Karte mit NFC & QR, 49,99 € einmalig" },
       {
         property: "og:description",
-        content: "Tippen oder scannen – deine Kunden bewerten dich in Sekunden bei Google.",
+        content: "Tippen oder scannen. Deine Kunden bewerten dich in Sekunden bei Google.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

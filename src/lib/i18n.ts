@@ -5,8 +5,7 @@ export const translations = {
     brand: "Scan&Smile",
     navCta: "Jetzt bestellen",
     heroTitle: "Lass deine glücklichen Kunden für dich sprechen",
-    heroText:
-      "Deine Kunden tippen oder scannen die Karte – und landen direkt im Google-Bewertungsfenster.",
+    heroText: "Deine Kunden tippen oder scannen die Karte und landen direkt im Google-Bewertungsfenster.",
     heroCta: "Karte sichern",
     heroNote: "Einmalige Ausgabe, kein Abo",
     badgeOnly: "Nur",
@@ -21,14 +20,14 @@ export const translations = {
     steps: [
       { title: "Karte platzieren", text: "Stelle die Karte an deinem Kassenbereich oder auf den Tischen auf." },
       { title: "Tippen oder Scannen", text: "Kunden halten ihr Smartphone an die Karte oder scannen den QR-Code." },
-      { title: "Bewertung erhalten", text: "Das Google-Formular öffnet sich sofort. Sterne vergeben — fertig!" },
+      { title: "Bewertung erhalten", text: "Das Google-Formular öffnet sich sofort. Sterne vergeben, fertig!" },
     ],
     servicesTitle: "Mehr als nur Bewertungen",
     servicesText: "Zwei weitere Services, mit denen wir dir helfen.",
     services: [
       {
         title: "Neue Webseite",
-        text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt – wir bauen deine neue Webseite genau passend zu deinem Business.",
+        text: "Von der ersten Idee bis zum fertigen One-Pager oder komplexen Auftritt. Wir bauen deine neue Webseite genau passend zu deinem Business.",
       },
       {
         title: "Verbesserungen & Automatisierung",
@@ -38,7 +37,7 @@ export const translations = {
     serviceCta: "Anfrage stellen",
     orderTitle: "Bereit für 5-Sterne-Wachstum?",
     orderText:
-      "Für 49,99 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein Google-Profil – konfiguriert und versendet innerhalb von 48 h.",
+      "Für 49,99 € bekommst du die physische NFC-Karte inklusive Programmierung auf dein Google-Profil, konfiguriert und versendet innerhalb von 48 h.",
     orderEmail: "Deine E-Mail Adresse",
     orderCta: "Bestellung starten",
     onceTitle: "Einmalige Ausgabe",
@@ -47,14 +46,14 @@ export const translations = {
     readyText: "Wir richten alles für dich ein.",
     contactEyebrow: "Ticket erstellen",
     contactTitle: "Lass uns loslegen",
-    contactText: "Neue Webseite, Optimierung oder Automatisierung – gib deine E-Mail an, ich melde mich.",
+    contactText: "Neue Webseite, Optimierung oder Automatisierung. Gib deine E-Mail an, ich melde mich.",
     formEmail: "Deine E-Mail",
     formEmailPlaceholder: "max@beispiel.de",
     formMessage: "Was brauchst du?",
     formMessagePlaceholder: "Neue Webseite / Automatisierung / Hilfe bei...",
     formSending: "Wird gesendet…",
-    formSubmit: "Anfrage senden – ich melde mich",
-    formSuccess: "Danke! Deine Anfrage ist angekommen – ich melde mich bei dir.",
+    formSubmit: "Anfrage senden, ich melde mich",
+    formSuccess: "Danke! Deine Anfrage ist angekommen, ich melde mich bei dir.",
     formErrorFallback: "Etwas ist schiefgelaufen.",
     formSla: "Wir antworten in der Regel innerhalb der nächsten 48 Stunden.",
     imprint: "Impressum",
@@ -63,7 +62,7 @@ export const translations = {
     pricing: "Preise",
     pricingBack: "← Zurück zur Startseite",
     pricingTitle: "Preise",
-    pricingSubtitle: "Wähle das Paket, das zu deinem Business passt — jederzeit erweiterbar.",
+    pricingSubtitle: "Wähle das Paket, das zu deinem Business passt. Jederzeit erweiterbar.",
     pricingPopular: "Beliebt",
     pricingCta: "Anfrage stellen",
     pricingTiers: [
@@ -93,7 +92,7 @@ export const translations = {
     ],
     checkoutBack: "← Zurück zur Startseite",
     checkoutTitle: "Bestellung",
-    checkoutSubtitle: "Fast geschafft — trag deine E-Mail ein, den Rest klären wir mit dir.",
+    checkoutSubtitle: "Fast geschafft. Trag deine E-Mail ein, den Rest klären wir mit dir.",
     checkoutSummaryTitle: "Deine Bestellung",
     checkoutNote:
       "Die Kartenzahlung über Stripe folgt in Kürze. Bis dahin senden wir dir nach dieser Anfrage die Zahlungsdetails per E-Mail zu.",
@@ -105,8 +104,7 @@ export const translations = {
     brand: "Scan&Smile",
     navCta: "Order now",
     heroTitle: "Let your happy customers speak for you",
-    heroText:
-      "Your customers tap or scan the card – and land straight in the Google review window.",
+    heroText: "Your customers tap or scan the card and land straight in the Google review window.",
     heroCta: "Get your card",
     heroNote: "One-time payment, no subscription",
     badgeOnly: "Only",
@@ -121,14 +119,14 @@ export const translations = {
     steps: [
       { title: "Place the card", text: "Put the card on your counter or on the tables." },
       { title: "Tap or scan", text: "Customers hold their phone to the card or scan the QR code." },
-      { title: "Get reviews", text: "The Google form opens instantly. Leave stars — done!" },
+      { title: "Get reviews", text: "The Google form opens instantly. Leave stars, done!" },
     ],
     servicesTitle: "More than just reviews",
     servicesText: "Two more ways we can help.",
     services: [
       {
         title: "New website",
-        text: "From the first idea to a finished one-pager or a complex site – we build your new website to fit your business.",
+        text: "From the first idea to a finished one-pager or a complex site. We build your new website to fit your business.",
       },
       {
         title: "Improvements & automation",
@@ -138,7 +136,7 @@ export const translations = {
     serviceCta: "Send a request",
     orderTitle: "Ready for 5-star growth?",
     orderText:
-      "For €49.99 you get the physical NFC card including programming to your Google profile – configured and shipped within 48 h.",
+      "For €49.99 you get the physical NFC card including programming to your Google profile, configured and shipped within 48 h.",
     orderEmail: "Your email address",
     orderCta: "Start order",
     onceTitle: "One-time payment",
@@ -147,14 +145,14 @@ export const translations = {
     readyText: "We set everything up for you.",
     contactEyebrow: "Create a ticket",
     contactTitle: "Let's get started",
-    contactText: "New website, optimisation, or automation – leave your email and I'll get back to you.",
+    contactText: "New website, optimisation, or automation. Leave your email and I'll get back to you.",
     formEmail: "Your email",
     formEmailPlaceholder: "john@example.com",
     formMessage: "What do you need?",
     formMessagePlaceholder: "New website / automation / help with...",
     formSending: "Sending…",
-    formSubmit: "Send request – I'll get back to you",
-    formSuccess: "Thanks! Your request came through – I'll be in touch.",
+    formSubmit: "Send request, I'll get back to you",
+    formSuccess: "Thanks! Your request came through, I'll be in touch.",
     formErrorFallback: "Something went wrong.",
     formSla: "We usually reply within the next 48 hours.",
     imprint: "Imprint",
@@ -163,7 +161,7 @@ export const translations = {
     pricing: "Pricing",
     pricingBack: "← Back to home",
     pricingTitle: "Pricing",
-    pricingSubtitle: "Choose the plan that fits your business — upgrade any time.",
+    pricingSubtitle: "Choose the plan that fits your business. Upgrade any time.",
     pricingPopular: "Popular",
     pricingCta: "Send a request",
     pricingTiers: [
@@ -193,7 +191,7 @@ export const translations = {
     ],
     checkoutBack: "← Back to home",
     checkoutTitle: "Checkout",
-    checkoutSubtitle: "Almost there — leave your email and we'll take it from here.",
+    checkoutSubtitle: "Almost there. Leave your email and we'll take it from here.",
     checkoutSummaryTitle: "Your order",
     checkoutNote:
       "Card payment via Stripe is coming soon. Until then, we'll email you the payment details after this request.",
@@ -205,8 +203,7 @@ export const translations = {
     brand: "Scan&Smile",
     navCta: "Pedir ahora",
     heroTitle: "Deja que tus clientes felices hablen por ti",
-    heroText:
-      "Tus clientes tocan o escanean la tarjeta – y llegan directo a la ventana de reseñas de Google.",
+    heroText: "Tus clientes tocan o escanean la tarjeta y llegan directo a la ventana de reseñas de Google.",
     heroCta: "Consigue tu tarjeta",
     heroNote: "Pago único, sin suscripción",
     badgeOnly: "Solo",
@@ -228,7 +225,7 @@ export const translations = {
     services: [
       {
         title: "Página web nueva",
-        text: "Desde la primera idea hasta una landing page terminada o un sitio complejo – construimos tu nueva web a medida de tu negocio.",
+        text: "Desde la primera idea hasta una landing page terminada o un sitio complejo. Construimos tu nueva web a medida de tu negocio.",
       },
       {
         title: "Mejoras y automatización",
@@ -238,7 +235,7 @@ export const translations = {
     serviceCta: "Enviar solicitud",
     orderTitle: "¿Listo para crecer con 5 estrellas?",
     orderText:
-      "Por 49,99 € recibes la tarjeta NFC física con la programación a tu perfil de Google incluida – configurada y enviada en 48 h.",
+      "Por 49,99 € recibes la tarjeta NFC física con la programación a tu perfil de Google incluida, configurada y enviada en 48 h.",
     orderEmail: "Tu dirección de correo",
     orderCta: "Iniciar pedido",
     onceTitle: "Pago único",
@@ -247,14 +244,14 @@ export const translations = {
     readyText: "Nosotros lo configuramos todo por ti.",
     contactEyebrow: "Crear ticket",
     contactTitle: "Empecemos",
-    contactText: "Web nueva, optimización o automatización – déjanos tu correo y te contactamos.",
+    contactText: "Web nueva, optimización o automatización. Déjanos tu correo y te contactamos.",
     formEmail: "Tu correo",
     formEmailPlaceholder: "maria@ejemplo.es",
     formMessage: "¿Qué necesitas?",
     formMessagePlaceholder: "Web nueva / automatización / ayuda con...",
     formSending: "Enviando…",
-    formSubmit: "Enviar solicitud – te contacto",
-    formSuccess: "¡Gracias! Tu solicitud ha llegado – me pondré en contacto contigo.",
+    formSubmit: "Enviar solicitud, te contacto",
+    formSuccess: "¡Gracias! Tu solicitud ha llegado, me pondré en contacto contigo.",
     formErrorFallback: "Algo salió mal.",
     formSla: "Normalmente respondemos en las próximas 48 horas.",
     imprint: "Aviso legal",
@@ -263,7 +260,7 @@ export const translations = {
     pricing: "Precios",
     pricingBack: "← Volver al inicio",
     pricingTitle: "Precios",
-    pricingSubtitle: "Elige el plan que se ajuste a tu negocio — mejorable en cualquier momento.",
+    pricingSubtitle: "Elige el plan que se ajuste a tu negocio. Mejorable en cualquier momento.",
     pricingPopular: "Popular",
     pricingCta: "Enviar solicitud",
     pricingTiers: [
@@ -293,7 +290,7 @@ export const translations = {
     ],
     checkoutBack: "← Volver al inicio",
     checkoutTitle: "Pedido",
-    checkoutSubtitle: "Ya casi está — deja tu correo y nos encargamos del resto.",
+    checkoutSubtitle: "Ya casi está. Deja tu correo y nos encargamos del resto.",
     checkoutSummaryTitle: "Tu pedido",
     checkoutNote:
       "El pago con tarjeta a través de Stripe estará disponible pronto. Mientras tanto, te enviaremos los datos de pago por correo tras esta solicitud.",
