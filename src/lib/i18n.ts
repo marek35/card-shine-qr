@@ -99,6 +99,30 @@ export const translations = {
     checkoutSubmit: "Bestellung anfragen",
     checkoutSending: "Wird gesendet…",
     checkoutSuccess: "Danke! Wir melden uns mit den Zahlungsdetails bei dir.",
+    navServices: "Services",
+    servicePages: {
+      website: {
+        eyebrow: "Neue Webseite",
+        title: "Deine neue Webseite",
+        subtitle:
+          "Von der ersten Idee bis zur fertigen Seite. Wir bauen deine Webseite genau passend zu deinem Business.",
+        features: ["Individuelles Design", "Mobil optimiert", "Schnelle Ladezeiten", "Direkt startklar"],
+        cta: "Anfrage stellen",
+      },
+      automation: {
+        eyebrow: "Automatisierung",
+        title: "Prozesse automatisieren",
+        subtitle:
+          "Bestehende Seite verbessern oder smarte Automatisierungen einbauen, die dir Arbeit abnehmen.",
+        features: [
+          "Individuelle Lösungen",
+          "Zeitersparnis im Alltag",
+          "Integration in bestehende Tools",
+          "Persönliche Beratung",
+        ],
+        cta: "Anfrage stellen",
+      },
+    },
   },
   en: {
     brand: "Scan&Smile",
@@ -198,6 +222,28 @@ export const translations = {
     checkoutSubmit: "Request order",
     checkoutSending: "Sending…",
     checkoutSuccess: "Thanks! We'll be in touch with the payment details.",
+    navServices: "Services",
+    servicePages: {
+      website: {
+        eyebrow: "New website",
+        title: "Your new website",
+        subtitle: "From the first idea to a finished site. We build your website to fit your business.",
+        features: ["Custom design", "Mobile optimised", "Fast load times", "Ready to launch"],
+        cta: "Send a request",
+      },
+      automation: {
+        eyebrow: "Automation",
+        title: "Automate your processes",
+        subtitle: "Refresh your existing site or add smart automations that take work off your hands.",
+        features: [
+          "Tailored solutions",
+          "Save time day to day",
+          "Integrates with your existing tools",
+          "Personal guidance",
+        ],
+        cta: "Send a request",
+      },
+    },
   },
   es: {
     brand: "Scan&Smile",
@@ -297,6 +343,29 @@ export const translations = {
     checkoutSubmit: "Solicitar pedido",
     checkoutSending: "Enviando…",
     checkoutSuccess: "¡Gracias! Nos pondremos en contacto contigo con los datos de pago.",
+    navServices: "Servicios",
+    servicePages: {
+      website: {
+        eyebrow: "Web nueva",
+        title: "Tu nueva web",
+        subtitle: "Desde la primera idea hasta una web terminada. Construimos tu web a medida de tu negocio.",
+        features: ["Diseño personalizado", "Optimizada para móvil", "Carga rápida", "Lista para lanzar"],
+        cta: "Enviar solicitud",
+      },
+      automation: {
+        eyebrow: "Automatización",
+        title: "Automatiza tus procesos",
+        subtitle:
+          "Renovamos tu web o integramos automatizaciones inteligentes que te quitan trabajo de encima.",
+        features: [
+          "Soluciones a medida",
+          "Ahorra tiempo cada día",
+          "Se integra con tus herramientas",
+          "Asesoramiento personal",
+        ],
+        cta: "Enviar solicitud",
+      },
+    },
   },
 } as const;
 

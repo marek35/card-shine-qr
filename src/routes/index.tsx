@@ -19,6 +19,7 @@ import { translations, type Dict } from "@/lib/i18n";
 import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { BrandLogo } from "@/components/brand-logo";
+import { ServicesMenu } from "@/components/services-menu";
 import { useLang } from "@/lib/use-lang";
 
 export const Route = createFileRoute("/")({
@@ -137,6 +138,7 @@ function Index() {
     <div className="font-sans" lang={lang}>
       <nav className="sticky top-4 z-50 flex justify-center px-4">
         <div className="flex items-center gap-3 rounded-full bg-background px-4 py-2 shadow-lg ring-1 ring-black/5">
+          <ServicesMenu t={t} />
           <div className="hidden sm:inline-block">
             <RevealButton href="/preise" label={t.pricing} compact />
           </div>
@@ -236,6 +238,7 @@ function Index() {
             {[Monitor, Bot].map((Icon, i) => {
               const color = ["bg-google-blue", "bg-google-red"][i];
               const service = t.services[i];
+              const href = i === 0 ? "/webseite" : "/automatisierung";
               return (
                 <div
                   key={service.title}
@@ -251,7 +254,7 @@ function Index() {
                     {service.text}
                   </p>
                   <Link
-                    to="/kontakt"
+                    to={href}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-google-blue transition-colors hover:text-google-blue/80"
                   >
                     <Mail className="size-4" />
