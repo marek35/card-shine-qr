@@ -212,13 +212,13 @@ function Index() {
               );
             })}
           </div>
-          <div className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-black/10">
+          <div className="mx-auto mt-16 max-w-3xl rounded-[2.5rem] bg-card p-3 shadow-2xl ring-1 ring-black/10">
             <video
               src={demoVideo}
               controls
               playsInline
               preload="metadata"
-              className="block w-full"
+              className="block w-full rounded-[1.75rem]"
             />
           </div>
         </div>
