@@ -105,8 +105,13 @@ export const translations = {
         eyebrow: "Neue Webseite",
         title: "Deine neue Webseite",
         subtitle:
-          "Von der ersten Idee bis zur fertigen Seite. Wir bauen deine Webseite genau passend zu deinem Business.",
-        features: ["Individuelles Design", "Mobil optimiert", "Schnelle Ladezeiten", "Direkt startklar"],
+          "Ob One-Pager oder komplexe Webseite: Ich baue sie ganz nach deinen Wünschen, inklusive deinem Logo und vorhandenem Material.",
+        features: [
+          "One-Pager oder komplexe Webseite",
+          "Individuelles Design nach deinen Wünschen",
+          "Dein Logo & bestehendes Material eingebunden",
+          "Mobil optimiert & schnelle Ladezeiten",
+        ],
         cta: "Anfrage stellen",
       },
       automation: {
@@ -227,8 +232,14 @@ export const translations = {
       website: {
         eyebrow: "New website",
         title: "Your new website",
-        subtitle: "From the first idea to a finished site. We build your website to fit your business.",
-        features: ["Custom design", "Mobile optimised", "Fast load times", "Ready to launch"],
+        subtitle:
+          "One-pager or complex website: built exactly to your brief, including your logo and existing materials.",
+        features: [
+          "One-pager or complex website",
+          "Custom design to your brief",
+          "Your logo & existing materials included",
+          "Mobile optimised & fast load times",
+        ],
         cta: "Send a request",
       },
       automation: {
@@ -348,8 +359,14 @@ export const translations = {
       website: {
         eyebrow: "Web nueva",
         title: "Tu nueva web",
-        subtitle: "Desde la primera idea hasta una web terminada. Construimos tu web a medida de tu negocio.",
-        features: ["Diseño personalizado", "Optimizada para móvil", "Carga rápida", "Lista para lanzar"],
+        subtitle:
+          "Landing page o web compleja: la construyo exactamente a tu medida, incluyendo tu logo y materiales existentes.",
+        features: [
+          "Landing page o web compleja",
+          "Diseño personalizado a tu medida",
+          "Tu logo y materiales existentes integrados",
+          "Optimizada para móvil y carga rápida",
+        ],
         cta: "Enviar solicitud",
       },
       automation: {
