@@ -23,7 +23,6 @@ import { BrandLogo } from "@/components/brand-logo";
 import { ServicesMenu } from "@/components/services-menu";
 import { MobileMenu } from "@/components/mobile-menu";
 import { Reveal } from "@/components/reveal";
-import { Spotlight } from "@/components/spotlight";
 import { useLang } from "@/lib/use-lang";
 
 export const Route = createFileRoute("/")({
@@ -161,87 +160,40 @@ function Index() {
         </div>
       </nav>
 
-      <section className="hero-dark relative overflow-hidden py-24 lg:py-36">
-        <div
-          aria-hidden="true"
-          className="animate-glow-drift-a pointer-events-none absolute -left-40 -top-40 size-[36rem] rounded-full bg-google-blue/25 blur-[110px]"
-        />
-        <div
-          aria-hidden="true"
-          className="animate-glow-drift-b pointer-events-none absolute -right-32 top-1/4 size-[30rem] rounded-full bg-google-red/15 blur-[110px]"
-        />
-        <div
-          aria-hidden="true"
-          className="animate-glow-drift-a pointer-events-none absolute bottom-[-8rem] left-1/3 size-[28rem] rounded-full bg-google-yellow/10 blur-[110px]"
-          style={{ animationDirection: "reverse" }}
-        />
-
-        <div className="relative mx-auto max-w-screen-xl px-6">
+      <section className="hero-glow overflow-hidden py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-xl px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
-            >
-              <motion.p
-                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-4 inline-flex items-center rounded-full bg-background/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-background/80 ring-1 ring-background/15"
-              >
-                NFC × Google Reviews
-              </motion.p>
-              <motion.h1
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-6 max-w-[20ch] text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-background lg:text-6xl"
-              >
+            <div>
+              <h1 className="mb-6 max-w-[20ch] text-balance text-4xl font-semibold leading-none tracking-tight text-foreground lg:text-6xl">
                 {t.heroTitle}
-              </motion.h1>
-              <motion.p
-                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-9 max-w-[48ch] text-pretty text-lg text-background/70"
-              >
+              </h1>
+              <p className="mb-8 max-w-[48ch] text-pretty text-lg text-muted-foreground">
                 {t.heroText}
-              </motion.p>
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-start gap-3"
-              >
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                  <Link
-                    to="/checkout"
-                    className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/30"
-                  >
-                    {t.heroCta}
-                  </Link>
-                </motion.div>
-                <p className="text-sm text-background/60">{t.heroNote}</p>
-              </motion.div>
-            </motion.div>
+              </p>
+              <div className="flex flex-col items-start gap-3">
+                <Link
+                  to="/checkout"
+                  className="flex items-center gap-2 rounded-full bg-google-blue px-6 py-3 text-sm font-medium text-background ring-2 ring-google-blue/20 transition-transform active:scale-95"
+                >
+                  {t.heroCta}
+                </Link>
+                <p className="text-sm text-muted-foreground">{t.heroNote}</p>
+              </div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Spotlight className="flex min-h-[32rem] w-full items-center justify-center rounded-[3rem]">
-                <div className="perspective-1000 relative flex justify-center">
-                  <ReviewCard t={t} />
+            <div className="perspective-1000 relative flex justify-center">
+              <ReviewCard t={t} />
 
-                  <div className="absolute right-0 top-0 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-google-yellow shadow-lg ring-4 ring-background/20 lg:-right-4 lg:size-32">
-                    <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                      {t.badgeOnly}
-                    </span>
-                    <span className="text-2xl font-bold text-foreground lg:text-3xl">
-                      {lang === "en" ? "€49.99" : "49,99 €"}
-                    </span>
-                    <span className="text-center text-[10px] font-medium text-foreground">{t.badgeAll}</span>
-                  </div>
-                </div>
-              </Spotlight>
-            </motion.div>
+              <div className="absolute right-0 top-0 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-google-yellow shadow-lg ring-4 ring-background lg:-right-4 lg:size-32">
+                <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                  {t.badgeOnly}
+                </span>
+                <span className="text-2xl font-bold text-foreground lg:text-3xl">
+                  {lang === "en" ? "€49.99" : "49,99 €"}
+                </span>
+                <span className="text-center text-[10px] font-medium text-foreground">{t.badgeAll}</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
