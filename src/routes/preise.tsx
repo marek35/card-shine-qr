@@ -4,8 +4,10 @@ import { RevealButton } from "@/components/reveal-button";
 import { LanguageToggle } from "@/components/language-toggle";
 import { translations, type Dict } from "@/lib/i18n";
 import { useLang } from "@/lib/use-lang";
+import { artificialDelay } from "@/lib/artificial-delay";
 
 export const Route = createFileRoute("/preise")({
+  loader: () => artificialDelay(),
   head: () => ({
     meta: [
       { title: "Preise – Scan & Smile" },

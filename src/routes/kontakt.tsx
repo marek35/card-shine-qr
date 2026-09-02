@@ -3,8 +3,10 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { ContactForm } from "@/components/contact-form";
 import { translations, type Dict } from "@/lib/i18n";
 import { useLang } from "@/lib/use-lang";
+import { artificialDelay } from "@/lib/artificial-delay";
 
 export const Route = createFileRoute("/kontakt")({
+  loader: () => artificialDelay(),
   head: () => ({
     meta: [
       { title: "Kontakt – Scan & Smile" },

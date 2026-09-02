@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 const NBSP = " ";
 
 type RevealButtonProps = {
@@ -9,12 +11,8 @@ type RevealButtonProps = {
 };
 
 export function RevealButton({ href, label, light, compact, className = "" }: RevealButtonProps) {
-  return (
-    <a
-      href={href}
-      className={`reveal-btn ${light ? "reveal-btn--light" : ""} ${className}`}
-      style={compact ? { padding: "0.5rem 1.25rem", fontSize: "0.8125rem" } : undefined}
-    >
+  const content = (
+    <>
       <span className="original">{label}</span>
       <span className="letters" aria-hidden="true">
         {label.split("").map((char, i) => (
@@ -23,6 +21,23 @@ export function RevealButton({ href, label, light, compact, className = "" }: Re
           </span>
         ))}
       </span>
+    </>
+  );
+
+  const btnClassName = `reveal-btn ${light ? "reveal-btn--light" : ""} ${className}`;
+  const btnStyle = compact ? { padding: "0.5rem 1.25rem", fontSize: "0.8125rem" } : undefined;
+
+  if (href.startsWith("/") && !href.includes("#")) {
+    return (
+      <Link to={href} className={btnClassName} style={btnStyle}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} className={btnClassName} style={btnStyle}>
+      {content}
     </a>
   );
 }

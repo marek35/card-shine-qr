@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { artificialDelay } from "@/lib/artificial-delay";
 
 export const Route = createFileRoute("/datenschutz")({
+  loader: () => artificialDelay(),
   head: () => ({
     meta: [
       { title: "Datenschutzerklärung – Scan & Smile" },
